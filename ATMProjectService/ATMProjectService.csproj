@@ -40,7 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICardReader.cs" />
+    <Compile Include="ICashDispenser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IReceiptPrinter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMProjectDAL\ATMProjectDAL.csproj">
+      <Project>{65397f2d-e12f-4288-9869-2a51be739e55}</Project>
+      <Name>ATMProjectDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

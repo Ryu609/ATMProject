@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMProjectDAL\ATMProjectDAL.csproj">
+      <Project>{65397F2D-E12F-4288-9869-2A51BE739E55}</Project>
+      <Name>ATMProjectDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMProjectService\ATMProjectService.csproj">
+      <Project>{66c12a5d-afd5-44ba-8afc-e3334efc2852}</Project>
+      <Name>ATMProjectService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

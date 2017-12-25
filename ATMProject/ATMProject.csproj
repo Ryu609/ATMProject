@@ -114,6 +114,20 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATMProjectBLL\ATMProjectBLL.csproj">
+      <Project>{83579fde-2492-4c5d-8c28-fb48dd67039c}</Project>
+      <Name>ATMProjectBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMProjectDAL\ATMProjectDAL.csproj">
+      <Project>{65397f2d-e12f-4288-9869-2a51be739e55}</Project>
+      <Name>ATMProjectDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATMProjectService\ATMProjectService.csproj">
+      <Project>{66c12a5d-afd5-44ba-8afc-e3334efc2852}</Project>
+      <Name>ATMProjectService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

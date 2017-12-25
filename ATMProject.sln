@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMProjectDAL", "ATMProject
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMProjectService", "ATMProjectService\ATMProjectService.csproj", "{66C12A5D-AFD5-44BA-8AFC-E3334EFC2852}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMProjectTest", "ATMProjectTest\ATMProjectTest.csproj", "{D1D2BFF8-428F-4FF2-BF1B-CE44E8C2ACB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMProject.Test", "ATMProjectTest\ATMProject.Test.csproj", "{D1D2BFF8-428F-4FF2-BF1B-CE44E8C2ACB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
