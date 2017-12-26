@@ -14,7 +14,7 @@ namespace ATMProjectTest
     {
         CardReader cardReader = new CardReader();
         [Test]
-        public void TestTrialLessOrEqualToThreeAndPasswordCorrect()
+        public async Task TestTrialLessOrEqualToThreeAndPasswordCorrectAsync()
         {
             Card card = new Card()
             {
@@ -24,14 +24,14 @@ namespace ATMProjectTest
                 Trials = 3
             };
             
-            bool actual = cardReader.Authenticate(card);
+            bool actual = await cardReader.AuthenticateAsync(card);
             bool expected = true;
             Assert.AreEqual(actual, expected);
             
         }
 
         [Test]
-        public void TestTrialLessOrEqualToThreeAndPasswordIncorrect()
+        public async Task TestTrialLessOrEqualToThreeAndPasswordIncorrectAsync()
         {
             Card card = new Card()
             {
@@ -41,7 +41,7 @@ namespace ATMProjectTest
                 Trials = 3
             };
 
-            bool actual = cardReader.Authenticate(card);
+            bool actual = await cardReader.AuthenticateAsync(card);
             bool expected = false;
             Assert.AreEqual(actual, expected);
         }
@@ -57,7 +57,7 @@ namespace ATMProjectTest
                 Trials = 4
             };
 
-            bool actual = cardReader.Authenticate(card);
+            bool actual = cardReader.RetainCard(card);
             bool expected = false;
             Assert.AreEqual(actual, expected);
         }

@@ -13,32 +13,27 @@ namespace ATMTestBLL
         private static string dummyCardNumber = "1234";
         private static string dummyPin = "1234";
 
-        public bool Authenticate(Card cardinfo)
-        {
-            if (CanCardBeAuthenticated(cardinfo))
-            {
-                return IsCombinationValid(cardinfo.CardNumber, cardinfo.Pin);
-            }
-            else
-            {
-                RetainCard(cardinfo);
-                return false;
-            }
-        }        
+        public async Task<bool> AuthenticateAsync(Card cardinfo)
+        {            
+            return IsCombinationValid(cardinfo.CardNumber, cardinfo.Pin);           
+        } 
 
-        private bool CanCardBeAuthenticated(Card card)
+        public bool RetainCard(Card card)
         {
-            return card.Trials <= 3;
-        }
-
-        public string RetainCard(Card card)
-        {
-            return "Your Card Has Been Retained. Please Visit Our Nearest Branch";
+            card.Trials++;
+            return card.Trials > 3;             
         }
 
         private bool IsCombinationValid (string cardNumber, string pin)
         {
             return cardNumber == dummyCardNumber && pin == dummyPin;
-        }       
+        }
+
+        public bool ShouldRetainCard(int trials)
+        {
+            return trials > 3;
+        }
+
+        
     }
 }
