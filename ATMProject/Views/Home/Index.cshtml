@@ -1,15 +1,14 @@
 ﻿<!DOCTYPE html>
-<html ng-app>
+<html ng-app ="ATMProject" ng-controller="LandingPageController">
 <head>
-    @Scripts.Render("~/bundles/Angular")
-    <title ng-bind="helloAngular"></title>
+  
+    <title ng-bind="models.helloAngular"></title>
 </head>
 <body>
 
-    <input type="text" ng-model="helloAngular" />
-    <h1>{{helloAngular}}</h1>
-
-   
-    
+    <input type="text" ng-model="models.helloAngular" />
+    <h1>{{models.helloAngular}}</h1>
+    @Scripts.Render("~/bundles/Angular")
+    @Scripts.Render("~/bundles/ATMProject")
 </body>
 </html>
