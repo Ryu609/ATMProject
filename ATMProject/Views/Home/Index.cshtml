@@ -1,8 +1,15 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    @Scripts.Render("~/bundles/Angular")
+    <title ng-bind="helloAngular"></title>
+</head>
+<body>
 
-<h2>Index</h2>
-@Html.Partial("Login");
+    <input type="text" ng-model="helloAngular" />
+    <h1>{{helloAngular}}</h1>
 
+   
+    
+</body>
+</html>
