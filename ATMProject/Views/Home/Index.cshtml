@@ -6,8 +6,16 @@
 </head>
 <body>
 
-    <input type="text" ng-model="models.helloAngular" />
     <h1>{{models.helloAngular}}</h1>
+
+    <ul>
+        <li><a href= "/#!/routeOne" >Route One</a></li>
+        <li><a href= "/#!/routeTwo/6" >Route Two</a></li>
+        <li><a href= "/#!/routeThree" >Route Three</a></li>
+    </ul>
+
+    <div ng-view=""></div>
+
     @Scripts.Render("~/bundles/Angular")
     @Scripts.Render("~/bundles/ATMProject")
 </body>
