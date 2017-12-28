@@ -932,6 +932,7 @@
     <Content Include="Views\RoutesDemo\Two.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\RoutesDemo\Three.cshtml" />
+    <Content Include="Views\Home\Withdraw.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

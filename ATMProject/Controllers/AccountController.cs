@@ -31,16 +31,9 @@ namespace ATMProject.Controllers
             CardReader cr = new CardReader();
             if (model.Pin == "1234" && model.CardNumber == "1234")
                 FormsAuthentication.RedirectFromLoginPage(model.CardNumber, true);
-
-
-            //if (cr.RetainCard(model))
-            //{
-            //    ModelState.AddModelError("", "Your card has been retained. Please contact our nearest branch.");
-            //    return false;
-            //}
-
-            ModelState.AddModelError("", "The pin is incorrect, please try again");
-            return true;
+                        
+                ModelState.AddModelError("", "The pin is incorrect, please try again");
+            return false;            
         }
 
         public ActionResult Logout()
