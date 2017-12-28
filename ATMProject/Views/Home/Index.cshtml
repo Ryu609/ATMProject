@@ -8,15 +8,21 @@
 
     <h1>{{models.helloAngular}}</h1>
 
-    <ul>
+    @*<ul>
         <li><a href= "/#!/routeOne" >Route One</a></li>
         <li><a href= "/#!/routeTwo/6" >Route Two</a></li>
         <li><a href= "/#!/routeThree" >Route Three</a></li>
-    </ul>
+    </ul>*@
 
     <ul>
-        <li><a href="/#!/login">Login</a></li>
-        <li><a href="/#!/logout">Logout</a></li>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><a href="/#!/logout">Logout</a></li>
+        }
+        else
+        {
+            <li><a href="/#!/login">Login</a></li>
+        }
     </ul>
     <div ng-view=""></div>
 
