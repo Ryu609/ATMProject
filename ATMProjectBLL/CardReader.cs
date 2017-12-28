@@ -18,11 +18,11 @@ namespace ATMTestBLL
             return IsCombinationValid(cardinfo.CardNumber, cardinfo.Pin);           
         } 
 
-        public bool RetainCard(Card card)
-        {
-            card.Trials++;
-            return card.Trials > 3;             
-        }
+        //public bool RetainCard(Card card)
+        //{
+        //    card.Trials++;
+        //    return card.Trials > 3;             
+        //}
 
         private bool IsCombinationValid (string cardNumber, string pin)
         {

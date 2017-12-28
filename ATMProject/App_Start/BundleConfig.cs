@@ -18,6 +18,7 @@ namespace ATMProject
 
             bundles.Add(new ScriptBundle("~/bundles/ATMProject")
                 .IncludeDirectory("~/Scripts/Controllers", "*.js")
+                .IncludeDirectory("~/Scripts/Factories", "*.js")
                 .Include("~/Scripts/ATMProject.js"));
 
             BundleTable.EnableOptimizations = true;

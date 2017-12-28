@@ -154,6 +154,9 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\ATMProject.js" />
     <Content Include="Scripts\Controllers\LandingPageController.js" />
+    <Content Include="Scripts\Controllers\LoginController.js" />
+    <Content Include="Scripts\Factories\AuthHttpResponseInterceptor.js" />
+    <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
@@ -927,6 +930,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\RoutesDemo\One.cshtml" />
     <Content Include="Views\RoutesDemo\Two.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\RoutesDemo\Three.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -937,7 +942,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ATMProjectBLL\ATMProjectBLL.csproj">

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ATMTestBLL;
 using ATMProjectDAL;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace ATMProject.Controllers
 {
@@ -22,16 +23,15 @@ namespace ATMProject.Controllers
         public async Task<bool> Login(Card model)
         {            
             CardReader cr = new CardReader();
-            var isAuthenticated = await cr.AuthenticateAsync(model);
+            if (model.Pin == "1234" && model.CardNumber == "1234")
+                FormsAuthentication.RedirectFromLoginPage(model.CardNumber, true);
+         
 
-            if (isAuthenticated)
-                return true;
-
-            if (cr.RetainCard(model))
-            {
-                ModelState.AddModelError("", "Your card has been retained. Please contact our nearest branch.");
-                return false;
-            }
+            //if (cr.RetainCard(model))
+            //{
+            //    ModelState.AddModelError("", "Your card has been retained. Please contact our nearest branch.");
+            //    return false;
+            //}
 
             ModelState.AddModelError("", "The pin is incorrect, please try again");
             return false;

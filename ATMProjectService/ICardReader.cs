@@ -11,6 +11,6 @@ namespace ATMProjectService
     {
         Task<bool> AuthenticateAsync (Card card);
 
-        bool RetainCard(Card card);        
+        //bool RetainCard(Card card);        
     }
 }
