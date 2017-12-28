@@ -1,6 +1,5 @@
 ﻿var LoginFactory = function ($http, $q) {
-    return function (cardNumber, pin) {
-        console.log(cardNumber, pin)
+    return function (cardNumber, pin) {       
         var deferredObject = $q.defer();
 
         //$http.post(
@@ -19,8 +18,8 @@
         //        deferredObject.resolve({ success: false });
         //    });
         $http({ method: 'POST', url: '/Account/Login', data: { CardNumber: cardNumber, Pin: pin } }).then(function successCallback(response) {
-            console.log(response);
-            if (response === "True") {
+            console.log("response : " + response.data)
+            if (response.data === "True") {
                 deferredObject.resolve({ success: true });
             } else {
                 deferredObject.resolve({ success: false });

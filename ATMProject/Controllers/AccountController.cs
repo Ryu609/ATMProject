@@ -29,10 +29,15 @@ namespace ATMProject.Controllers
         public async Task<bool> Login(Card model)
         {
             CardReader cr = new CardReader();
+            
+            var membership = new WebConfigMembershipProvider();
             if (model.Pin == "1234" && model.CardNumber == "1234")
-                FormsAuthentication.RedirectFromLoginPage(model.CardNumber, true);
-                        
-                ModelState.AddModelError("", "The pin is incorrect, please try again");
+                if (membership.ValidateUser(model.CardNumber, model.Pin))
+                {
+                    FormsAuthentication.SetAuthCookie(model.CardNumber, true);
+                    return true;
+                }                   
+               
             return false;            
         }
 

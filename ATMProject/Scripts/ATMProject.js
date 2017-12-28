@@ -7,16 +7,17 @@ atmproject.factory('LoginFactory', LoginFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider
-        .when('/routeOne', { templateUrl: 'routesDemo/one' })
-        .when('/routeTwo/:donuts', {
-            templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
-        })
-        .when('/routeThree', { templateUrl: 'routeDemo/three' })
+        //.when('/routeOne', { templateUrl: 'routesDemo/one' })
+        //.when('/routeTwo/:donuts', {
+        //    templateUrl: function (params) { return '/routesDemo/two?donuts=' + params.donuts; }
+        //})
+        //.when('/routeThree', { templateUrl: 'routeDemo/three' })
         .when('/login', {
             templateUrl: '/Account/Login',
             controller: LoginController
         })
-        .when('/logout', { templateUrl: '/Account/Logout' });
+        .when('/logout', { templateUrl: '/Account/Logout' })
+        .when('/withdraw', { templateUrl: '/Home/Withdraw' });
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }

@@ -10,18 +10,15 @@
         var result = LoginFactory($scope.loginForm.cardNumber, $scope.loginForm.pin);
         //console.log(result)
         
-        //result.then(function (result) {
-        //    debugger;
-        //    if (result.success) {
-        //        if ($scope.loginForm.returnUrl !== undefined) {
-        //            $location.path('/routeOne');
-        //        } else {
-        //            $location.path($scope.loginForm.returnUrl);
-        //        }
-        //    } else {
-        //        $scope.loginForm.loginFailure = true;
-        //    }
-        //});
+        result.then(function (result) {
+            console.log(result.success)
+
+            if (result.success) {                
+                    $location.path('/withdraw');                
+            } else {
+                $scope.loginForm.loginFailure = true;
+            }
+        });
     }
 }
 
