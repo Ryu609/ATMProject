@@ -14,6 +14,7 @@ namespace ATMProject.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Two(int donuts = 1)
         {
             ViewBag.Donuts = donuts;

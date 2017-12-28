@@ -15,7 +15,8 @@ var configFunction = function ($routeProvider, $httpProvider) {
         .when('/login', {
             templateUrl: '/Account/Login',
             controller: LoginController
-        });
+        })
+        .when('/logout', { templateUrl: '/Account/Logout' });
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }

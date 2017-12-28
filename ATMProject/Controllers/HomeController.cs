@@ -20,11 +20,12 @@ namespace ATMProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<bool> Login(Card model)
         {            
             CardReader cr = new CardReader();
             if (model.Pin == "1234" && model.CardNumber == "1234")
-                FormsAuthentication.RedirectFromLoginPage(model.CardNumber, true);
+                return true;
          
 
             //if (cr.RetainCard(model))
@@ -33,7 +34,7 @@ namespace ATMProject.Controllers
             //    return false;
             //}
 
-            ModelState.AddModelError("", "The pin is incorrect, please try again");
+           // ModelState.AddModelError("", "The pin is incorrect, please try again");
             return false;
         }
 

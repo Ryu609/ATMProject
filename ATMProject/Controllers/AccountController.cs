@@ -40,7 +40,14 @@ namespace ATMProject.Controllers
             //}
 
             ModelState.AddModelError("", "The pin is incorrect, please try again");
-            return false;
+            return true;
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
