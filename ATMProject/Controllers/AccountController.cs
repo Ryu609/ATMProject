@@ -36,16 +36,9 @@ namespace ATMProject.Controllers
                 FormsAuthentication.SetAuthCookie(model.CardNumber, true);
                 return true;
             }
-            else
-            {
-                model.Attempts++;
-                if (model.Attempts > membership.MaxInvalidPasswordAttempts)
-                {
-                    //CardReader.RetainCard();
-
-                }
-            return false;
-            }           
+           
+              return false;
+                       
         }
 
         public ActionResult Logout()
