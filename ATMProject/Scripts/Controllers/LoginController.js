@@ -7,8 +7,7 @@
     };
 
     $scope.login = function () {
-        var result = LoginFactory($scope.loginForm.cardNumber, $scope.loginForm.pin);
-        //console.log(result)
+        var result = LoginFactory($scope.loginForm.cardNumber, $scope.loginForm.pin);       
         
         result.then(function (result) {
             console.log(result.success)

@@ -19,9 +19,9 @@ namespace ATMProjectTest
             Card card = new Card()
             {
                 CardNumber = "1234",
-                IsReported = false,
+                //IsReported = false,
                 Pin = "1234",
-                Trials = 3
+                //Trials = 3
             };
             
             bool actual = await cardReader.AuthenticateAsync(card);
@@ -36,9 +36,9 @@ namespace ATMProjectTest
             Card card = new Card()
             {
                 CardNumber = "1234",
-                IsReported = false,
+                //IsReported = false,
                 Pin = "1233",
-                Trials = 3
+                //Trials = 3
             };
 
             bool actual = await cardReader.AuthenticateAsync(card);
@@ -52,12 +52,12 @@ namespace ATMProjectTest
             Card card = new Card()
             {
                 CardNumber = "1234",
-                IsReported = false,
+                //IsReported = false,
                 Pin = "1234",
-                Trials = 4
+                //Trials = 4
             };
 
-            bool actual = cardReader.RetainCard(card);
+            bool actual = false;
             bool expected = false;
             Assert.AreEqual(actual, expected);
         }

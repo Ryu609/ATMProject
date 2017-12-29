@@ -10,11 +10,19 @@ namespace ATMProject
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/Site.css"));
+            bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/Site.css")
+                .Include("~/Content/ui-bootstrap-csp.css")
+                .Include("~/Content/Bootstrap.min.css"));
+
+          
 
             bundles.Add(new ScriptBundle("~/bundles/Angular")
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/angular-route.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Bootstrap")
+                .IncludeDirectory("~/Scripts/angular-ui", "*.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/ATMProject")
                 .IncludeDirectory("~/Scripts/Controllers", "*.js")
