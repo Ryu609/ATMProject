@@ -15,7 +15,7 @@ public class WebConfigMembershipProvider : MembershipProvider
 
     public override string ApplicationName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-    public override int MaxInvalidPasswordAttempts => throw new System.NotImplementedException();
+    public override int MaxInvalidPasswordAttempts => 3;
 
     public override int PasswordAttemptWindow => throw new System.NotImplementedException();
 

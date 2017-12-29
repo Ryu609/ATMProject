@@ -25,20 +25,27 @@ namespace ATMProject.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]        
+        [AllowAnonymous]
         public async Task<bool> Login(Card model)
         {
             CardReader cr = new CardReader();
-            
-            var membership = new WebConfigMembershipProvider();
-            if (model.Pin == "1234" && model.CardNumber == "1234")
-                if (membership.ValidateUser(model.CardNumber, model.Pin))
+
+            var membership = new WebConfigMembershipProvider();           
+            if (membership.ValidateUser(model.CardNumber, model.Pin))
+            {
+                FormsAuthentication.SetAuthCookie(model.CardNumber, true);
+                return true;
+            }
+            else
+            {
+                model.Attempts++;
+                if (model.Attempts > membership.MaxInvalidPasswordAttempts)
                 {
-                    FormsAuthentication.SetAuthCookie(model.CardNumber, true);
-                    return true;
-                }                   
-               
-            return false;            
+                    //CardReader.RetainCard();
+
+                }
+            return false;
+            }           
         }
 
         public ActionResult Logout()
