@@ -35,10 +35,8 @@ namespace ATMProject.Controllers
             {
                 FormsAuthentication.SetAuthCookie(model.CardNumber, true);
                 return true;
-            }
-           
-              return false;
-                       
+            }           
+              return false;                       
         }
 
         public ActionResult Logout()

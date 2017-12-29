@@ -1,5 +1,5 @@
 ﻿var LoginFactory = function ($http, $q) {
-    return function (cardNumber, pin) {       
+    return function (cardNumber, pin, loginFailAttempt, retainCard) {       
         var deferredObject = $q.defer();
         
         $http({ method: 'POST', url: '/Account/Login', data: { CardNumber: cardNumber, Pin: pin } })
