@@ -28,7 +28,7 @@ namespace ATMProject.Controllers
         [AllowAnonymous]
         public async Task<bool> Login(Card model)
         {
-            CardReader cr = new CardReader();
+            
 
             var membership = new WebConfigMembershipProvider();           
             if (membership.ValidateUser(model.CardNumber, model.Pin))
