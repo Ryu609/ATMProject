@@ -14,7 +14,7 @@
         
         result.then(function (result) {   
             if (result.success) {                
-                $location.path('/withdraw');                 
+                $location.path('/Transaction');                 
             }
             else {
                 $scope.loginForm.loginFailAttempt = $scope.loginForm.loginFailAttempt + 1;

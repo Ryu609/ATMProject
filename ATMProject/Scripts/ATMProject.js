@@ -2,13 +2,12 @@
 
 atmproject.controller('LandingPageController', LandingPageController);
 atmproject.controller('LoginController', LoginController);
-atmproject.controller('WithdrawController', WithdrawController);
-////atmproject.controller('RetainCardController', RetainCardController);
+atmproject.controller('TransactionController', TransactionController);
 
 
 atmproject.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 atmproject.factory('LoginFactory', LoginFactory);
-atmproject.factory('WithdrawFactory', WithdrawFactory)
+atmproject.factory('TransactionFactory', TransactionFactory)
 atmproject.factory('RetainCardFactory', RetainCardFactory)
 
 
@@ -19,7 +18,7 @@ var configFunction = function ($routeProvider, $httpProvider) {
             controller: LoginController
         })        
         .when('/logout', { templateUrl: '/Account/Logout' })
-        .when('/withdraw', { templateUrl: '/Home/Withdraw', controller : WithdrawController });
+        .when('/Transaction', { templateUrl: '/Transaction/Index', controller : TransactionController });
 
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
