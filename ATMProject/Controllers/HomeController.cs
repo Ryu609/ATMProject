@@ -14,15 +14,9 @@ namespace ATMProject.Controllers
     {
         // GET: Home
         public ActionResult Index()
-        
-{
-            return View(new Card());
-        }     
-              
-        [Authorize]
-        public ActionResult Withdraw()
+
         {
-            return View();
+            return View(new Card());
         }
     }
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{65397F2D-E12F-4288-9869-2A51BE739E55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ATMTestDAL</RootNamespace>
-    <AssemblyName>ATMTestDAL</AssemblyName>
+    <RootNamespace>ATMProjectDAL</RootNamespace>
+    <AssemblyName>ATMProjectDAL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WithdrawViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
