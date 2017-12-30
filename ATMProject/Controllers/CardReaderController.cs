@@ -13,7 +13,7 @@ namespace ATMProject.Controllers
         [HttpPost]
         public async Task <bool> Retain(string cardNumber)
         {
-            CardReader cr = new CardReader();
+            CardReaderService cr = new CardReaderService();
             if(await cr.RetainCardAsync(cardNumber))
             return true;
             return false; 
