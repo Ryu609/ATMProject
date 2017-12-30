@@ -8,6 +8,6 @@ namespace ATMProjectService
 {
     interface IReceiptPrinter
     {
-        
+        void printReceipt();
     }
 }
