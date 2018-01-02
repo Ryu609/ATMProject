@@ -11,13 +11,7 @@ using System.Web.Security;
 namespace ATMProject.Controllers
 {
     public class AccountController : Controller
-    {
-        // GET: Account
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+    {      
         [AllowAnonymous]
         public ActionResult Login()
         {

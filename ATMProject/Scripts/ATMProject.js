@@ -13,7 +13,8 @@ atmproject.factory('WithdrawFactory', WithdrawFactory);
 atmproject.factory('AmountSelectionFactory', AmountSelectionFactory);
 atmproject.factory('WithdrawAmountFactory', WithdrawAmountFactory);
 
-var configFunction = function ($routeProvider, $httpProvider) {
+var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {
+    $locationProvider.hashPrefix('!').html5Mode(true);
     $routeProvider
         .when('/login', {
             templateUrl: '/Account/Login',
@@ -30,6 +31,6 @@ var configFunction = function ($routeProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
 
-configFunction.$inject = ['$routeProvider', '$httpProvider'];
+configFunction.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
 
 atmproject.config(configFunction)

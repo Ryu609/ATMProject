@@ -14,10 +14,29 @@ namespace ATMProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "login",
+                url: "Account/Login",
+                defaults: new { controller = "Account", action = "Login" });
+
+            routes.MapRoute(
+              name: "logout",
+              url: "Account/Logout",
+              defaults: new { controller = "Account", action = "Logout" });
+
+            routes.MapRoute(
+                name: "retain",
+                url: "CardReader/Retain",
+                defaults: new { controller = "CardReader", action = "Retain" });
+
+            routes.MapRoute(
+                name: "Transaction",
+                url: "Transaction",
+                defaults: new { controller = "Transaction", action = "Index" });
+
+            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                url: "{*url}",
+                defaults: new { controller = "Home", action = "Index"});
         }
     }
 }

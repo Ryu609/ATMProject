@@ -12,9 +12,7 @@ namespace ATMProject.Controllers
 {
     [Authorize]
     public class TransactionController : Controller
-    {
-
-        
+    {        
         [Authorize]
         public ActionResult Index()
         {

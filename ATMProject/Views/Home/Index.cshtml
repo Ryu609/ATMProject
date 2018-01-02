@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html ng-app="ATMProject" ng-controller="LandingPageController">
 <head>
+    <base href="/">
     <title ng-bind="models.helloAngular"></title>
     @Styles.Render("~/Content/css")
 </head>
@@ -13,13 +14,13 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item na">
-                        <a class="nav-link" href="/#!/logout">Logout</a>
+                        <a class="nav-link" href="/logout">Logout</a>
                     </li>
                 }
                 else
                 {
                     <li class="nav-item na">
-                        <a class="nav-link" href="/#!/login">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>                    
                 }                
             </ul>
