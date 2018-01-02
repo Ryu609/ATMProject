@@ -1,7 +1,11 @@
-﻿var LandingPageController = function ($scope) {
+﻿var LandingPageController = function ($scope, WithdrawAmountFactory) {
     $scope.navbarProperties = {
         isCollapsed: true
     };
+
+    $scope.Withdraw = function (item) {
+        var result = WithdrawAmountFactory(item);
+    }
 }
 
-LandingPageController.$inject = ['$scope'];
+LandingPageController.$inject = ['$scope', 'WithdrawAmountFactory'];

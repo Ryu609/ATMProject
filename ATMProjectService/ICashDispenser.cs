@@ -9,6 +9,6 @@ namespace ATMProjectService
     public  interface ICashDispenser 
     {
         //parameter will be replace by a complex type in iteration 2
-        void Dispense(int amount);        
+        bool Dispense(double amount, string account);
     }
 }

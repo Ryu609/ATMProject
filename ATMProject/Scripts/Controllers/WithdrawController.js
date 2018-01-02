@@ -20,5 +20,9 @@
         console.log(selectedAccount.AccountNumber);
         $location.path('SelectAmount/' + selectedAccount.AccountNumber);
     }
+
+    $scope.Withdraw = function (item) {
+        console.log(item);
+    }
 }
 WithdrawController.$inject = ['$scope', '$routeParams', '$location', 'WithdrawFactory', 'AmountSelectionFactory']

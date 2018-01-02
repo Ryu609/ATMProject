@@ -51,7 +51,12 @@ namespace ATMProject.Controllers
         [HttpPost]
         public bool Withdraw(WithdrawViewModel model)
         {
-            return false;
+            bool isSuccess;
+            var ser = new TransactionService();
+             ser.Retrieve(model, out isSuccess);
+            if (isSuccess)
+                return true;
+            else return false;           
         }
     }
 }

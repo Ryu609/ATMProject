@@ -11,6 +11,7 @@ atmproject.factory('TransactionFactory', TransactionFactory);
 atmproject.factory('RetainCardFactory', RetainCardFactory);
 atmproject.factory('WithdrawFactory', WithdrawFactory);
 atmproject.factory('AmountSelectionFactory', AmountSelectionFactory);
+atmproject.factory('WithdrawAmountFactory', WithdrawAmountFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider

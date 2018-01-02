@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ATMProjecttDAL;
 
 namespace ATMTestBLL
 {
-    public class TransactionService : ICashDispenser
+    public class TransactionService : ICashDispenser, IReceiptPrinter
     {
         private List<Account> _accounts = new List<Account>() {
                 new Account { AccountId = 1,
@@ -24,9 +25,10 @@ namespace ATMTestBLL
         };
         public List<Account> Accounts => _accounts;
 
-        public void Dispense(int amount)
+        public bool Dispense(double amount, string account)
         {
-            throw new NotImplementedException();
+            //module to implement the dispenser;
+            return true;
         }
 
         public double GetBalance(string accountNumber)
@@ -45,6 +47,26 @@ namespace ATMTestBLL
             return denomination;
 
 
+        }
+
+        public void Retrieve(WithdrawViewModel model, out bool isSuccess)
+        {
+
+            var account = Accounts.Where(a => a.AccountNumber == model.Account).FirstOrDefault();
+            try
+            {
+                account.Balance -= model.Amount;
+                isSuccess = Dispense(model.Amount, model.Account) && printReceipt(model.Amount, model.Account);
+            }
+            catch {
+                throw new Exception();
+            }
+        }
+
+        public bool printReceipt( double amount,string account)
+        {
+            //module to implement print receipt
+            return true;
         }
     }
 }

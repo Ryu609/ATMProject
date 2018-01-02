@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ATMProjectService
 {
-    interface IReceiptPrinter
+   public interface IReceiptPrinter
     {
-        void printReceipt();
+        bool printReceipt(double amount, string account);
     }
 }
