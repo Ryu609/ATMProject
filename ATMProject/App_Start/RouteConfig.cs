@@ -39,6 +39,11 @@ namespace ATMProject
                 defaults: new {controller = "Transaction", action = "SelectAccount" });
 
             routes.MapRoute(
+                name: "GetAccounts",
+                url: "Transaction/GetAccounts/{CardNumber}",
+                defaults: new { controller = "Transaction", action = "GetAccounts", CardNumber = ""});
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{*url}",
                 defaults: new { controller = "Home", action = "Index"});
