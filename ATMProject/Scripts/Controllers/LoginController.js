@@ -21,13 +21,8 @@
                
                 if ($scope.loginForm.loginFailAttempt > 3) {                   
                     var retainCardresult = RetainCardFactory($scope.loginForm.cardNumber);
-                    //console.log(retainCardresult);
-                    //if (retainCardresult.success) {
-                    //    $scope.loginForm.retainCard = true;
-                    //    console.log($scope.loginForm.retainCard);
-                    //}
-                    retainCardresult.then(function (retainCardresult) {
-                        console.log(retainCardresult.success);
+                   
+                    retainCardresult.then(function (retainCardresult) {                       
                         if (retainCardresult.success) {
                             $scope.loginForm.retainCard = true;
                         }

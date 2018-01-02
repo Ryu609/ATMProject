@@ -14,9 +14,8 @@ namespace ATMProject.Controllers
     {
         // GET: Home
         public ActionResult Index()
-
         {
-            return View(new Card());
+            return View();
         }
     }
 }

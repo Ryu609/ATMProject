@@ -169,6 +169,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\Factories\AmountSelectionFactory.js" />
     <Content Include="Scripts\Factories\AuthHttpResponseInterceptor.js" />
     <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\Factories\RetainCardFactory.js" />
@@ -972,8 +973,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Transaction\Index.cshtml" />
-    <Content Include="Views\Transaction\WithdrawAccount.cshtml" />
-    <Content Include="Views\Transaction\WithdrawAmount.cshtml" />
+    <Content Include="Views\Transaction\SelectAmount.cshtml" />
+    <Content Include="Views\Transaction\SelectAccount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

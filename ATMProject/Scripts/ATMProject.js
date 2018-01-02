@@ -5,13 +5,12 @@ atmproject.controller('LoginController', LoginController);
 atmproject.controller('TransactionController', TransactionController);
 atmproject.controller('WithdrawController', WithdrawController);
 
-
 atmproject.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 atmproject.factory('LoginFactory', LoginFactory);
 atmproject.factory('TransactionFactory', TransactionFactory);
 atmproject.factory('RetainCardFactory', RetainCardFactory);
 atmproject.factory('WithdrawFactory', WithdrawFactory);
-
+atmproject.factory('AmountSelectionFactory', AmountSelectionFactory);
 
 var configFunction = function ($routeProvider, $httpProvider) {
     $routeProvider
@@ -21,8 +20,12 @@ var configFunction = function ($routeProvider, $httpProvider) {
         })
         .when('/logout', { templateUrl: '/Account/Logout' })
         .when('/Transaction', { templateUrl: '/Transaction/Index', controller: TransactionController })
-        .when('/Withdraw', { templateUrl: '/Transaction/Withdraw', controller: WithdrawController });       
-
+        .when('/Withdraw', { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController })
+        .when('/SelectAmount/:accountNumber', {
+            templateUrl: function (params) {
+                return '/Transaction/selectAmount?accountNumber=' + params.accountNumber;
+            }});
+        
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 }
 
