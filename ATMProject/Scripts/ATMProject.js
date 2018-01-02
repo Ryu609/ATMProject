@@ -25,7 +25,7 @@ var configFunction = function ($routeProvider, $httpProvider, $locationProvider)
         .when('/Withdraw', { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController })
         .when('/SelectAmount/:accountNumber', {
             templateUrl: function (params) {
-                return '/Transaction/selectAmount?accountNumber=' + params.accountNumber;
+                return '/Transaction/selectAmount/' + params.accountNumber;
             }});
         
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');

@@ -2,7 +2,7 @@
     return function (account) {
         var deferredObject = $q.defer();
 
-        $http({ method: 'GET', url: '/Transaction/SelectAmount', data: { Account: account } })
+        $http({ method: 'GET', url: '/Transaction/SelectAmount/' + account})
             .then(function successCallback(response) {
                 deferredObject.resolve(response)
                 console.log(response.data);
