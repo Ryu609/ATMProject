@@ -1,6 +1,8 @@
-﻿@model IEnumerable<int>
-
-@foreach (var item in Model)
-{
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(@item)"> @item</button>
-}
+﻿@model double
+    <h4>Balance : @Model </h4>
+    
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(20)" ng-disabled=" @Model < 20"> 20</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(50)" ng-disabled=" @Model < 50"> 50</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(100)" ng-disabled=" @Model < 100"> 100</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(500)" ng-disabled=" @Model < 500"> 500</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(1000)" ng-disabled=" @Model < 1000"> 1000</button>

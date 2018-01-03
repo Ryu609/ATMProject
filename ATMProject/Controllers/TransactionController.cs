@@ -41,20 +41,24 @@ namespace ATMProject.Controllers
         {
             var ser = new TransactionService();
             var balance = ser.GetBalance(accountNumber);
-            var amountretrievable = ser.GetAmountRetrievable(balance);
-            return View(amountretrievable);
+            return View(balance);
         }
 
         [Authorize]
         [HttpPost]
         public bool Withdraw(WithdrawViewModel model)
-        {
-            bool isSuccess;
+        {            
             var ser = new TransactionService();
-             ser.Retrieve(model, out isSuccess);
-            if (isSuccess)
+            try
+            {
+                ser.Retrieve(model);
                 return true;
-            else return false;           
+            }
+            catch (Exception e)
+            {
+                ser.printErrorStatement(model.Account, e.Message);
+                return false;
+            }           
         }
     }
 }

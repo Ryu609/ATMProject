@@ -1,5 +1,5 @@
 ﻿var WithdrawController = function ($scope, $routeParams, $location, WithdrawFactory, AmountSelectionFactory) {
-    console.log("reached controller")
+    
     
     $scope.accounts = [];
 

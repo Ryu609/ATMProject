@@ -8,6 +8,7 @@ namespace ATMProjectService
 {
    public interface IReceiptPrinter
     {
-        bool printReceipt(double amount, string account);
+        void printReceipt(double amount, string account);
+         void printErrorStatement(string account, string errorMessage);
     }
 }

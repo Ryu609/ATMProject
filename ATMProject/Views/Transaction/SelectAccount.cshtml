@@ -1,9 +1,5 @@
-﻿
-@*<select ng-model="withdraw.account" ng-options="a.AccountNumber for a in account track by a.AccountId">
-        <option ng-model="withdraw.cardNumber" value="">-- Select account to Withdraw --</option>
-    </select>*@
-<select ng-model="selectedAccount" ng-change="WithdrawSelect(selectedAccount)" ng-init="mylist = GetAccountList()" ng-options="item.AccountNumber for item in accounts">    
+﻿<select ng-model="selectedAccount" ng-change="WithdrawSelect(selectedAccount)" ng-init="mylist = GetAccountList()" ng-options="item.AccountNumber for item in accounts">    
     <option value="">Select Account</option>
 </select>
 
-<div ng-bind-html="amounts"></div>
+

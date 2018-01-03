@@ -3,7 +3,7 @@
         var deferredObject = $q.defer(); 
         $http({ method: 'POST', url: '/Transaction/Withdraw', data: { Amount: amount, Account: 'AJO01254' } })
             .then(function successCallback(response) {
-                deferredObject.resolve(response)
+                deferredObject.resolve(true);
             }, function errorCallback(response) {
                 deferredObject.resolve({ success: false });
             });
