@@ -1,8 +1,6 @@
-﻿var RetainCardFactory = function ($http, $q) {
-    console.log("$q" + $q);
+﻿var RetainCardFactory = function ($http, $q) {   
     return function (cardNumber) {
-        var deferredObject = $q.defer();
-        alert("Reached");
+        var deferredObject = $q.defer();        
         $http({
             method: 'POST', url: '/CardReader/Retain', data: { CardNumber: cardNumber }
         })

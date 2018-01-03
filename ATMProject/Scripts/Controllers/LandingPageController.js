@@ -2,7 +2,7 @@
     $scope.WithdrawMessage = "";
 
     $scope.Withdraw = function (item, account) {
-        console.log(item);
+        
         var result = WithdrawAmountFactory(item, account);
         result.then(function (result) {
             if (result.success)

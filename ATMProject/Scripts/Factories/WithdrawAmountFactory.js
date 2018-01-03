@@ -1,6 +1,5 @@
 ﻿var WithdrawAmountFactory = function ($http, $q) {
-    return function (amount, account) {
-        console.log(account);
+    return function (amount, account) {       
         var deferredObject = $q.defer(); 
         $http({ method: 'POST', url: '/Transaction/Withdraw', data: { AmountToWithdraw: amount, Account: account } })
             .then(function successCallback(response) {

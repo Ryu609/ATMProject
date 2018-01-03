@@ -4,8 +4,7 @@
 
         $http({ method: 'GET', url: '/Transaction/SelectAmount/' + account})
             .then(function successCallback(response) {
-                deferredObject.resolve(response)
-                console.log(response.data);
+                deferredObject.resolve(response)                
             }, function errorCallback(response) {
                 deferredObject.resolve({ success: false });
             });

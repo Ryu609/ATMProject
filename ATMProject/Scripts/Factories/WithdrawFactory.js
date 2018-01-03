@@ -1,8 +1,6 @@
 ﻿var WithdrawFactory = function ($http, $q) {
     return function (cardNumber) {
-        var deferredObject = $q.defer();   
-        console.log("Reached WithdrawFactory");       
-        console.log("Reached Factory")
+        var deferredObject = $q.defer();           
         $http({ method: 'GET', url: '/Transaction/GetAccounts', data: { CardNumber: cardNumber } })
             .then(function successCallback(response) {
                 deferredObject.resolve(response)
