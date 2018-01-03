@@ -31,13 +31,7 @@ namespace ATMProject
             routes.MapRoute(
                 name: "Transaction",
                 url: "Transaction/Index",
-                defaults: new { controller = "Transaction", action = "Index" });
-
-            routes.MapRoute(
-                name: "Withdraw",
-                url: "Transaction/SelectAccount", 
-                defaults: new {controller = "Transaction", action = "SelectAccount" });
-
+                defaults: new { controller = "Transaction", action = "Index" });            
             routes.MapRoute(
                 name: "GetAccounts",
                 url: "Transaction/GetAccounts/{CardNumber}",
@@ -52,6 +46,11 @@ namespace ATMProject
                 name: "SelectAmount",
                 url: "Transaction/SelectAmount/{accountNumber}",
                 defaults: new { controller = "Transaction", action = "SelectAmount", accountNumber = "" });
+
+            routes.MapRoute(
+                name: "Withdraw",
+                url: "Transaction/Withdraw",
+                defaults: new { controller = "Transaction", action = "Withdraw" });
 
             routes.MapRoute(
                 name: "Default",

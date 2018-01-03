@@ -1,8 +1,13 @@
-﻿var LandingPageController = function ($scope, WithdrawAmountFactory) {   
+﻿var LandingPageController = function ($scope, WithdrawAmountFactory) {
+    $scope.WithdrawMessage = "";
 
-    $scope.Withdraw = function (item) {
+    $scope.Withdraw = function (item, account) {
         console.log(item);
-        var result = WithdrawAmountFactory(item);
+        var result = WithdrawAmountFactory(item, account);
+        result.then(function (result) {
+            if(result.success)
+            $scope.WithdrawMessage = "Successful " + result.amount;
+        });
     }
 }
 

@@ -1,8 +1,10 @@
-﻿@model double
-    <h4>Balance : @Model </h4>
+﻿@model ATMProjectDAL.WithdrawViewModel
+    <h4>Balance : @Model.Balance </h4>
+    <h4>Account : @Model.Account </h4>
+{{WithdrawMessage}}
     
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(20)" ng-disabled=" @Model < 20"> 20</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(50)" ng-disabled=" @Model < 50"> 50</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(100)" ng-disabled=" @Model < 100"> 100</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(500)" ng-disabled=" @Model < 500"> 500</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(1000)" ng-disabled=" @Model < 1000"> 1000</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(20,@Model.Account)" ng-disabled=" @Model.Balance < 20"> 20</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(50, @Model.Account)" ng-disabled=" @Model.Balance < 50"> 50</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(100, @Model.Account)" ng-disabled=" @Model.Balance < 100"> 100</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(500, @Model.Account)" ng-disabled=" @Model.Balance < 500"> 500</button>
+<button class="btn btn-primary btn-lg" ng-click="Withdraw(1000, @Model.Account)" ng-disabled=" @Model.Balance < 1000"> 1000</button>

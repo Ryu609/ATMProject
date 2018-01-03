@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ATMProjecttDAL;
 
 namespace ATMTestBLL
 {
@@ -40,9 +39,9 @@ namespace ATMTestBLL
         {
            
             var account = Accounts.Where(a => a.AccountNumber == model.Account).FirstOrDefault();
-            Dispense(model.Amount, model.Account);
-            printReceipt(model.Amount, model.Account);
-            account.Balance -= model.Amount;
+            Dispense(model.AmountToWithdraw, model.Account);
+            printReceipt(model.AmountToWithdraw, model.Account);
+            account.Balance -= model.AmountToWithdraw;
         }
 
         public void printReceipt( double amount,string account)

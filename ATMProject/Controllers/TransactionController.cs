@@ -1,5 +1,4 @@
 ﻿using ATMProjectDAL;
-using ATMProjecttDAL;
 using ATMTestBLL;
 using System;
 using System.Collections.Generic;
@@ -40,8 +39,13 @@ namespace ATMProject.Controllers
         public ActionResult SelectAmount(string accountNumber)
         {
             var ser = new TransactionService();
-            var balance = ser.GetBalance(accountNumber);
-            return View(balance);
+            var model = new WithdrawViewModel()
+            {
+                Balance = ser.GetBalance(accountNumber),
+                Account = accountNumber,
+                AmountToWithdraw = 0
+            };           
+            return View(model);
         }
 
         [Authorize]

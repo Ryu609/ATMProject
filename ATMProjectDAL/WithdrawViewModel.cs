@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ATMProjecttDAL
+namespace ATMProjectDAL
 {
     public class WithdrawViewModel
     {
-        public int Amount { get; set; }
+        public double Balance { get; set; }
+        public int AmountToWithdraw { get; set; }
         public string Account { get; set; }
     }
 }
