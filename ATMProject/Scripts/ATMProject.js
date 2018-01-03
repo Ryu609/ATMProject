@@ -23,6 +23,8 @@ var configFunction = function ($routeProvider, $httpProvider, $locationProvider)
         .when('/logout', { templateUrl: '/Account/Logout' })
         .when('/Transaction', { templateUrl: '/Transaction/Index', controller: TransactionController })
         .when('/Withdraw', { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController })
+        .when('/ThankYou', { templateUrl: '/SuccessPage.html', controller: LandingPageController })
+        .when('/WithdrawError', { templateUrl: '/WithdrawError.html', controller: LandingPageController })
         .when('/SelectAmount/:accountNumber', {
             templateUrl: function (params) {
                 return '/Transaction/selectAmount/' + params.accountNumber;

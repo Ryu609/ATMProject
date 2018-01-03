@@ -17,5 +17,10 @@ namespace ATMProject.Controllers
         {
             return View();
         }
+
+        //public ActionResult Html(string page)
+        //{
+        //    return View();
+        //}
     }
 }

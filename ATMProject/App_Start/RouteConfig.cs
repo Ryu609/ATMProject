@@ -13,6 +13,8 @@ namespace ATMProject
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.RouteExistingFiles = true;
+
             routes.MapRoute(
                 name: "login",
                 url: "Account/Login",
@@ -53,9 +55,17 @@ namespace ATMProject
                 defaults: new { controller = "Transaction", action = "Withdraw" });
 
             routes.MapRoute(
+                name: "Message",
+                url: "{page}.html",
+                defaults: new { controller = "Home", action = "html", page = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{*url}",
                 defaults: new { controller = "Home", action = "Index"});
+
+            
         }
     }
 }
