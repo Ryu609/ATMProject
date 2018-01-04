@@ -2,7 +2,7 @@
 <html ng-app="ATMProject" ng-controller="LandingPageController">
 <head>
     <base href="/">
-    <title ng-bind="models.helloAngular"></title>
+    <title ng-bind="models.title"></title>
     @Styles.Render("~/Content/css")
 </head>
 <body>
@@ -26,9 +26,9 @@
             </ul>
         </div>
     </nav>
-
+   
     <div class="container mainContent">
-        <div ng-view=""></div>
+        <div ng-view=""><h1></h1></div>
     </div>
     @Scripts.Render("~/bundles/Angular")
     @Scripts.Render("~/bundles/Bootstrap")

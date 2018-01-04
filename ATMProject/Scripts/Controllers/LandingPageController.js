@@ -1,6 +1,10 @@
-﻿var LandingPageController = function ($scope, WithdrawAmountFactory, $window) {
-    $scope.WithdrawMessage = "";
+﻿var LandingPageController = function ($scope, WithdrawAmountFactory, $window) {   
+    $scope.models = {
+        title: "ATM Application",
+        WelcomeMessage: "Welcome to the ATM application"
+    };
 
+    //Todo to put at correct location
     $scope.Withdraw = function (item, account) {
         
         var result = WithdrawAmountFactory(item, account);
