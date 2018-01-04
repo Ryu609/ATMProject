@@ -1,4 +1,4 @@
-﻿var WithdrawFactory = function ($http, $q) {
+﻿var AccountsFactory = function ($http, $q) {
     return function (cardNumber) {
         var deferredObject = $q.defer();           
         $http({ method: 'GET', url: '/Transaction/GetAccounts', data: { CardNumber: cardNumber } })
@@ -11,4 +11,4 @@
     }
 }
 
-WithdrawFactory.$inject = ['$http', '$q'];
+AccountsFactory.$inject = ['$http', '$q'];

@@ -1,4 +1,4 @@
-﻿var WithdrawController = function ($scope, $window, $routeParams, $location, WithdrawFactory, AmountSelectionFactory, WithdrawAmountFactory) {
+﻿var WithdrawController = function ($scope, $window, $routeParams, $location, AccountsFactory, AmountSelectionFactory, WithdrawAmountFactory) {
       
     $scope.accounts = [];
 
@@ -25,4 +25,4 @@
         });
     }   
 }
-WithdrawController.$inject = ['$scope', '$window', '$routeParams', '$location', 'WithdrawFactory', 'AmountSelectionFactory', 'WithdrawAmountFactory'];
+WithdrawController.$inject = ['$scope', '$window', '$routeParams', '$location', 'AccountsFactory', 'AmountSelectionFactory', 'WithdrawAmountFactory'];

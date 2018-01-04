@@ -7,9 +7,8 @@ atmproject.controller('WithdrawController', WithdrawController);
 
 atmproject.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 atmproject.factory('LoginFactory', LoginFactory);
-atmproject.factory('TransactionFactory', TransactionFactory);
 atmproject.factory('RetainCardFactory', RetainCardFactory);
-atmproject.factory('WithdrawFactory', WithdrawFactory);
+atmproject.factory('AccountsFactory', AccountsFactory);
 atmproject.factory('AmountSelectionFactory', AmountSelectionFactory);
 atmproject.factory('WithdrawAmountFactory', WithdrawAmountFactory);
 
