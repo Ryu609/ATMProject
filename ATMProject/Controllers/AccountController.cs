@@ -33,11 +33,12 @@ namespace ATMProject.Controllers
               return false;                       
         }
 
-        public ActionResult Logout()
+        public void Logout()
         {
             Session.Clear();
+            Session.Abandon();
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            FormsAuthentication.RedirectToLoginPage();            
         }
     }
 }

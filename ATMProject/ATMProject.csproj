@@ -169,7 +169,6 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\Factories\AmountSelectionFactory.js" />
     <Content Include="Scripts\Factories\AuthHttpResponseInterceptor.js" />
     <Content Include="Scripts\Factories\LoginFactory.js" />
     <Content Include="Scripts\Factories\RetainCardFactory.js" />

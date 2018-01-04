@@ -9,7 +9,6 @@ atmproject.factory('AuthHttpResponseInterceptor', AuthHttpResponseInterceptor);
 atmproject.factory('LoginFactory', LoginFactory);
 atmproject.factory('RetainCardFactory', RetainCardFactory);
 atmproject.factory('AccountsFactory', AccountsFactory);
-atmproject.factory('AmountSelectionFactory', AmountSelectionFactory);
 atmproject.factory('WithdrawAmountFactory', WithdrawAmountFactory);
 
 var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {

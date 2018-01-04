@@ -4,8 +4,6 @@
         $http({ method: 'GET', url: '/Transaction/GetAccounts', data: { CardNumber: cardNumber } })
             .then(function successCallback(response) {
                 deferredObject.resolve(response)
-            }, function errorCallback(response) {
-                deferredObject.resolve({ success: false });
             });
         return deferredObject.promise;        
     }

@@ -1,13 +1,14 @@
-﻿var WithdrawController = function ($scope, $window, $routeParams, $location, AccountsFactory, AmountSelectionFactory, WithdrawAmountFactory) {
+﻿var WithdrawController = function ($scope, $window, $routeParams, $location, AccountsFactory, WithdrawAmountFactory) {
       
     $scope.accounts = [];
 
     $scope.GetAccountList = function () {
-        var result = WithdrawFactory($scope.cardNumber);
+        var result = AccountsFactory($scope.cardNumber);
         result.then(function (result) {            
             if (result.success) {
-                $scope.accounts = result.data;
-            }            
+                
+            } 
+            $scope.accounts = result.data;
         });  
     }
 
@@ -25,4 +26,4 @@
         });
     }   
 }
-WithdrawController.$inject = ['$scope', '$window', '$routeParams', '$location', 'AccountsFactory', 'AmountSelectionFactory', 'WithdrawAmountFactory'];
+WithdrawController.$inject = ['$scope', '$window', '$routeParams', '$location', 'AccountsFactory', 'WithdrawAmountFactory'];
