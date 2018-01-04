@@ -1,15 +1,13 @@
 ﻿var WithdrawController = function ($scope, $window, $routeParams, $location, WithdrawFactory, AmountSelectionFactory, WithdrawAmountFactory) {
-    
-    console.log("WithdrawControllerReached");
+      
     $scope.accounts = [];
 
     $scope.GetAccountList = function () {
         var result = WithdrawFactory($scope.cardNumber);
         result.then(function (result) {            
             if (result.success) {
-               
-            }
-            $scope.accounts = result.data;
+                $scope.accounts = result.data;
+            }            
         });  
     }
 
@@ -17,8 +15,7 @@
         $location.path('SelectAmount/' + selectedAccount.AccountNumber);
     }  
 
-    $scope.Withdraw = function (item, account) {
-        console.log("Withdraw Method");
+    $scope.Withdraw = function (item, account) {       
         var result = WithdrawAmountFactory(item, account);
         result.then(function (result) {
             if (result.success)

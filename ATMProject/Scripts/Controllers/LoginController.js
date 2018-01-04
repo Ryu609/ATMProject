@@ -1,8 +1,7 @@
 ﻿var LoginController = function ($scope, $routeParams, $location, LoginFactory, RetainCardFactory) {
     $scope.loginForm = {
         cardNumber: '',
-        pin: '',
-        returnUrl: $routeParams.returnUrl,
+        pin: '',        
         loginFailure: false,
         loginFailAttempt: 0,
         retainCard: false
