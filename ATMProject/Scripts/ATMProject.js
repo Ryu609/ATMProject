@@ -16,9 +16,6 @@ atmproject.factory('WithdrawAmountFactory', WithdrawAmountFactory);
 var configFunction = function ($routeProvider, $httpProvider, $locationProvider) {
     $locationProvider.hashPrefix('!').html5Mode(true);
     $routeProvider
-        .when('/', {
-            controller: 'LandingpageController', templateUrl: '/Home/Index'
-        })
         .when('/login', {
             templateUrl: '/Account/Login',
             controller: LoginController
@@ -29,15 +26,12 @@ var configFunction = function ($routeProvider, $httpProvider, $locationProvider)
         .when('/ThankYou', { templateUrl: '/SuccessPage.html', controller: LandingPageController })
         .when('/WithdrawError', { templateUrl: '/WithdrawError.html', controller: LandingPageController })
         .when('/SelectAmount/:accountNumber', {
-            templateUrl: function (params) {
-                return '/Transaction/selectAmount/' + params.accountNumber;
-            }
-        }
-            .otherwise({redirectTo: '/'}));
-        
+            templateUrl: function (params) { return '/Transaction/selectAmount/' + params.accountNumber; }, controller: WithdrawController
+        });
+
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
-}
+};
 
 configFunction.$inject = ['$routeProvider', '$httpProvider', '$locationProvider'];
 
-atmproject.config(configFunction)
+atmproject.config(configFunction);
