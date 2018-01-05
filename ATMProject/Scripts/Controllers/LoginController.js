@@ -1,4 +1,4 @@
-﻿var LoginController = function ($scope, $routeParams, $location, LoginFactory, RetainCardFactory) {
+﻿var LoginController = function ($scope, $window, $routeParams, $location, LoginFactory, RetainCardFactory) {
     $scope.loginForm = {
         cardNumber: '',
         pin: '',        
@@ -25,6 +25,7 @@
                     retainCardresult.then(function (retainCardresult) {                       
                         if (retainCardresult.success) {
                             $scope.loginForm.retainCard = true;
+                            $window.location.href = "/Retain";
                         }
                     });
                 }
@@ -34,4 +35,4 @@
     }
 }
 
-LoginController.$inject = ['$scope', '$routeParams', '$location', 'LoginFactory', 'RetainCardFactory'];
+LoginController.$inject = ['$scope','$window', '$routeParams', '$location', 'LoginFactory', 'RetainCardFactory'];

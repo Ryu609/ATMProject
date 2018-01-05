@@ -1,6 +1,6 @@
 ﻿
 <div class="form-group col-lg-4 col-centered">
-    <form name="loginForm" novalidate ng-submit="login()">
+    <form novalidate ng-submit="login()">
         <input placeholder="Card Number" class="form-control" type="text" ng-model="loginForm.cardNumber" id="cardNumber" name="inputcardNumber" required />
         <div ng-if="submitted || loginForm.cardNumber.$dirty">
             <div ng-messages="loginForm.inputcardNumber.$error" role="alert">
@@ -20,9 +20,6 @@
 </div>
 
 <div ng-if="loginForm.loginFailure">
-    Login Failed, Please insert the correct CardNumber/Pin combination {{loginForm.loginFailAttempt}}
-</div>
-
-<div ng-if="loginForm.retainCard">
-    Card has been retained
+   Attempt : #{{loginForm.loginFailAttempt}}
+   Login Failed, Please insert the correct CardNumber/Pin combination
 </div>
