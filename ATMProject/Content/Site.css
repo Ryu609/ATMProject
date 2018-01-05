@@ -1,4 +1,10 @@
 ﻿.mainContent {
-    margin-top: 60px
+    margin-top: 60px;
+    
 }
 
+.col-centered {
+    margin-top: 100px;
+    float: none;
+    margin: 0 auto;
+}

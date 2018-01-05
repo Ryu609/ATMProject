@@ -1,18 +1,28 @@
-﻿<div class="form-group col-lg-4">
-<form ng-submit="login()">
-    <label for="cardNumber">Card Number:</label>
-    <input class="form-control" type="text" ng-model="loginForm.cardNumber" id="cardNumber" required />
-    <br/>
-    <label for="pin">Pin:</label>
-    <input class="form-control" type="password" id="pin" ng-model="loginForm.pin" required />
-     <br/>
-    <button class="btn btn-primary" type="submit">Login</button>
-</form>
+﻿
+<div class="form-group col-lg-4 col-centered">
+    <form name="loginForm" novalidate ng-submit="login()">
+        <input placeholder="Card Number" class="form-control" type="text" ng-model="loginForm.cardNumber" id="cardNumber" name="inputcardNumber" required />
+        <div ng-if="submitted || loginForm.cardNumber.$dirty">
+            <div ng-messages="loginForm.inputcardNumber.$error" role="alert">
+                <div ng-message="required"> cardNumber is a required field</div>
+            </div>
+        </div>
+        <br />
+        <input placeholder="Pin" class="form-control" type="password" id="pin" ng-model="loginForm.pin" name="inputpin" required />
+        <div ng-if="submitted || loginForm.pin.$dirty">
+            <div ng-messages="loginForm.inputpin.$error" role="alert">
+                <div ng-message="required">pin is a required field</div>
+            </div>
+        </div>
+        <br />
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
 </div>
+
 <div ng-if="loginForm.loginFailure">
-    Login Failed
+    Login Failed, Please insert the correct CardNumber/Pin combination
 </div>
 
 <div ng-if="loginForm.retainCard">
-    Card has been retained    
+    Card has been retained
 </div>

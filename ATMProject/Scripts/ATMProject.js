@@ -1,4 +1,4 @@
-﻿var atmproject = angular.module('ATMProject', ['ngRoute', 'ui.bootstrap']);
+﻿var atmproject = angular.module('ATMProject', ['ngRoute', 'ui.bootstrap', 'ngMessages']);
 
 atmproject.controller('LandingPageController', LandingPageController);
 atmproject.controller('LoginController', LoginController);

@@ -19,6 +19,7 @@ namespace ATMProject
 
             bundles.Add(new ScriptBundle("~/bundles/Angular")
                 .Include("~/Scripts/angular.js")
+                .Include("~/Scripts/angular-messages.js")
                 .Include("~/Scripts/angular-route.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Bootstrap")
