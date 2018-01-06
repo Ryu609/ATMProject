@@ -1,4 +1,5 @@
-﻿var LoginController = function ($scope, $window, $routeParams, $location, LoginFactory, RetainCardFactory) {
+﻿var LoginController = function ($scope, $window, $stateParams, $location, LoginFactory, RetainCardFactory) {
+    console.log("controller Reached");
     $scope.loginForm = {
         cardNumber: '',
         pin: '',        
@@ -35,4 +36,4 @@
     }
 }
 
-LoginController.$inject = ['$scope','$window', '$routeParams', '$location', 'LoginFactory', 'RetainCardFactory'];
+LoginController.$inject = ['$scope','$window', '$stateParams', '$location', 'LoginFactory', 'RetainCardFactory'];
