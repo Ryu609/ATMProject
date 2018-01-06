@@ -1,25 +1,29 @@
-﻿
-<div class="form-group col-lg-4 col-centered">
-    <form novalidate ng-submit="login()">
-        <input placeholder="Card Number" class="form-control" type="text" ng-model="loginForm.cardNumber" id="cardNumber" name="inputcardNumber" required />
-        <div ng-if="submitted || loginForm.cardNumber.$dirty">
-            <div ng-messages="loginForm.inputcardNumber.$error" role="alert">
-                <div ng-message="required"> <font size="2">The Card Number is required!</font></div>
-            </div>
+﻿<div ng-model="loginForm">
+    <div class="form-group col-lg-5 col-centered">
+        <div ng-if="handleError.loginFailure">
+            Attempt : #{{handleError.loginFailAttempt}}
+            Login Failed, Please insert the correct CardNumber/Pin combination!
         </div>
-        <br />
-        <input placeholder="Pin" class="form-control" type="password" id="pin" ng-model="loginForm.pin" name="inputpin" required />
-        <div ng-if="submitted || loginForm.pin.$dirty">
-            <div ng-messages="loginForm.inputpin.$error" role="alert">
-                <div ng-message="required"><font size="2">The Pin is required!</font></div>
+        <br/>
+        <form name="loginForm" novalidate ng-submit="login()">
+            <input placeholder="Card Number" class="form-control" type="text" ng-model="loginForm.cardNumber" id="cardNumber" name="inputcardNumber" required />
+            <div ng-if="submitted || loginForm.cardNumber.$dirty">
+                <div ng-messages="loginForm.inputcardNumber.$error" role="alert">
+                    <div ng-message="required"> <font size="2">The Card Number is required!</font></div>
+                </div>
             </div>
-        </div>
-        <br />
-        <button class="btn btn-primary" type="submit">Login</button>
-    </form>
-</div>
+            <br />
+            <input placeholder="Pin" class="form-control" type="password" id="pin" ng-model="loginForm.pin" name="inputpin" required />
+            <div ng-if="submitted || loginForm.pin.$dirty">
+                <div ng-messages="loginForm.inputpin.$error" role="alert">
+                    <div ng-message="required"><font size="2">The Pin is required!</font></div>
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+       
+    </div>
 
-<div ng-if="loginForm.loginFailure">
-   Attempt : #{{loginForm.loginFailAttempt}}
-   Login Failed, Please insert the correct CardNumber/Pin combination
+    
 </div>

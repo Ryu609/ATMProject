@@ -1,8 +1,8 @@
-﻿var LandingPageController = function ($scope, $window) {
+﻿var LandingPageController = function ($scope, $window, $state) {
+    $state.transitionTo('stateTen');
     $scope.models = {
-        title: "ATM Application",
-        WelcomeMessage: "Welcome to the ATM application"
-    };
+        title: "ATM Application"       
+    };   
 };
 
-LandingPageController.$inject = ['$scope', '$window'];
+LandingPageController.$inject = ['$scope', '$window', '$state'];

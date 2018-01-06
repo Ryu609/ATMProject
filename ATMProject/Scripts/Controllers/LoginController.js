@@ -1,39 +1,40 @@
-﻿var LoginController = function ($scope, $window, $stateParams, $location, LoginFactory, RetainCardFactory) {
-    console.log("controller Reached");
-    $scope.loginForm = {
+﻿var LoginController = function ($scope,$state, $window, $stateParams, $location, LoginFactory, RetainCardFactory) {
+        $scope.loginForm = {
         cardNumber: '',
-        pin: '',        
-        loginFailure: false,
-        loginFailAttempt: 0,
-        retainCard: false
-        
-    };
-
+        pin: '' 
+         };
+        $scope.handleError = {
+            loginFailure: false,
+            loginFailAttempt: 0,
+            retainCard: false,
+        }
+        console.log($scope);
     $scope.login = function () {
         $scope.submitted = true;
+       
         var result = LoginFactory($scope.loginForm.cardNumber, $scope.loginForm.pin);       
         
         result.then(function (result) {   
-            if (result.success) {                
-                $location.path('/Transaction');                 
+            if (result.success) {
+                $state.transitionTo("stateThree");           
             }
             else {
-                $scope.loginForm.loginFailAttempt = $scope.loginForm.loginFailAttempt + 1;
-               
-                if ($scope.loginForm.loginFailAttempt > 3) {                   
+                $scope.handleError.loginFailAttempt = $scope.handleError.loginFailAttempt + 1;
+                console.log($scope);
+                if ($scope.handleError.loginFailAttempt > 3) {                   
                     var retainCardresult = RetainCardFactory($scope.loginForm.cardNumber);
                    
                     retainCardresult.then(function (retainCardresult) {                       
                         if (retainCardresult.success) {
-                            $scope.loginForm.retainCard = true;
-                            $window.location.href = "/Retain";
+                            $scope.handleError.retainCard = true;
+                            $state.transitionTo("stateSix");           
                         }
                     });
                 }
-                $scope.loginForm.loginFailure = true;                                
+                $scope.handleError.loginFailure = true;                                
             }
         });
-    }
+    }  
 }
 
-LoginController.$inject = ['$scope','$window', '$stateParams', '$location', 'LoginFactory', 'RetainCardFactory'];
+LoginController.$inject = ['$scope', '$state','$window', '$stateParams', '$location', 'LoginFactory', 'RetainCardFactory'];

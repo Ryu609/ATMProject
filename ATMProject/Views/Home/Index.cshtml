@@ -6,33 +6,17 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">       
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <a class="navbar-brand" href="#">ATMProject</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav navbar-toggler-right">                
-              
-                    <li class="nav-item na">
-                        <a class="nav-link" ui-sref="stateTwo">Logout</a>
-                    </li>
-               
-                    <li class="nav-item na">
-                        <a class="nav-link" ui-sref="stateOne">Login</a>
-                    </li>                    
-                               
-            </ul>
-        </div>
     </nav>
-   
-    <div class="container mainContent">       
-        <div class="row">
-            <div class="col-md-6">
-                <div ui-view="containerOne"></div>
-            </div>
-            <div class="col-md-6">
-                <div ui-view="containerTwo"></div>
-            </div>
-        </div>      
+    <div class="container mainContent">
+        <div class="col-md-12">
+            <div ui-view="containerOne"></div>
+        </div>
+        <br />
+        <div class="col-md-12">
+            <div ui-view="containerTwo"></div>
+        </div>
     </div>
     @Scripts.Render("~/bundles/Angular")
     @Scripts.Render("~/bundles/Bootstrap")

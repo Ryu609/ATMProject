@@ -1,4 +1,4 @@
-﻿var WithdrawController = function ($scope, $window, $stateParams, $location, AccountsFactory, WithdrawAmountFactory) {
+﻿var WithdrawController = function ($scope, $state, $window, $stateParams, $location, AccountsFactory, WithdrawAmountFactory) {
       
     $scope.accounts = [];
 
@@ -6,7 +6,7 @@
         var result = AccountsFactory($scope.cardNumber);
         result.then(function (result) {            
             if (result.success) {
-                
+                //TODO
             } 
             $scope.accounts = result.data;
         });  
@@ -17,14 +17,14 @@
         $location.path('SelectAmount/' + selectedAccount.AccountNumber);
     }  
 
-    $scope.Withdraw = function (item, account) {       
-        var result = WithdrawAmountFactory(item, account);
+    $scope.Withdraw = function (amount, account) {       
+        var result = WithdrawAmountFactory(amount, account);
         result.then(function (result) {
             if (result.success)
-                $window.location.href = "/ThankYou";
+                $state.transitionTo("stateFour");
             else
-                $window.locaiton.href = "/WithdrawError";
+                $state.transitionTo("stateSeven");
         });
     }   
 }
-WithdrawController.$inject = ['$scope', '$window', '$stateParams', '$location', 'AccountsFactory', 'WithdrawAmountFactory'];
+WithdrawController.$inject = ['$scope', '$state', '$window', '$stateParams', '$location', 'AccountsFactory', 'WithdrawAmountFactory'];
