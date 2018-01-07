@@ -20,17 +20,22 @@ namespace ATMProject.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<bool> Login(Card model)
-        {
-            
-
-            var membership = new WebConfigMembershipProvider();           
+        public async Task<JsonResult> Login(Card model)
+        {           
+            var membership = new WebConfigMembershipProvider();
+            var cardReader = new CardReaderService();
+            var card = cardReader.GetCard(model.CardNumber);
+            if (card.IsReported)
+            {
+                await cardReader.RetainCardAsync(card.CardNumber);
+                
+            }
             if (membership.ValidateUser(model.CardNumber, model.Pin))
             {
                 FormsAuthentication.SetAuthCookie(model.CardNumber, true);
-                return true;
-            }           
-              return false;                       
+                card.IsAuthenticated = true;
+            }
+            return Json(card, JsonRequestBehavior.AllowGet);              
         }
 
         public void Logout()

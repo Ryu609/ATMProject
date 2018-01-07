@@ -19,7 +19,7 @@ namespace ATMProject.Controllers
         }
 
         [Authorize]
-        public ActionResult GetAccounts(string CardNumber)
+        public JsonResult GetAccounts(string CardNumber)
         {
             var serv = new TransactionService();
             //Get list of accounts in the future

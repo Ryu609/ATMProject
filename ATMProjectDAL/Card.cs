@@ -9,7 +9,9 @@ namespace ATMProjectDAL
     public class Card
     {
         public string Pin { get; set; }        
-        public string CardNumber { get; set; }  
-        public int Attempts { get; set; }
+        public string CardNumber { get; set; }          
+        public bool IsReported { get; set; }
+        public bool IsRetain { get; set; }
+        public bool IsAuthenticated { get; set; } = false;
     }
 }
