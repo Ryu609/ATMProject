@@ -1,10 +1,25 @@
 ﻿@model ATMProjectDAL.WithdrawViewModel
-    <h4>Balance : @Model.Balance </h4>
-    <h4>Account : @Model.Account </h4>
-{{WithdrawMessage}}
-    
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(20,@Model.Account)" ng-disabled=" @Model.Balance < 20"> 20</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(50, @Model.Account)" ng-disabled=" @Model.Balance < 50"> 50</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(100, @Model.Account)" ng-disabled=" @Model.Balance < 100"> 100</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(500, @Model.Account)" ng-disabled=" @Model.Balance < 500"> 500</button>
-<button class="btn btn-primary btn-lg" ng-click="Withdraw(1000, @Model.Account)" ng-disabled=" @Model.Balance < 1000"> 1000</button>
+<h4>Balance : @Model.Balance </h4>
+<h4>Account : @Model.Account </h4>
+
+
+<form name="withdrawForm" novalidate ng-submit="withdraw('@Model.Account')">
+   
+    <div class="form-group" col-lg-8 col-centered>
+        <input placeholder="Amount To Withdraw" class="form-control" ng-keyup="setDenominators()" type="number" name="inputAmount" id="amount" ng-model="withdrawForm.amount" pattern="^\d*[0]$"/>
+            <div ng-messages="withdrawForm.amount.$error" style="color:maroon" role="alert" ng-if="withdrawForm.amount.$dirty"> 
+                <div ng-message="pattern"><font size="2">The value should be a multiple of 10</font></div>                
+            </div> 
+    </div>
+    <div ng-if="withdrawForm.inputAmount.$valid">
+        @*
+            <a ><div "><h1></h1></div></a>
+        </div>*@
+        <div ng-repeat="denominator in  denominators">
+            <label>
+                <input type="radio" ng-model="withdrawForm.selectedDenominator" name="withdrawForm.inputdenominator" ng-value="denominator"> <span ng-repeat="item in denominator"> {{item.Unit}} * {{item.Currency}} + </span>
+            </label>
+        </div>
+        </div>
+    <button class="btn btn-primary" type="submit">Retrieve</button>
+</form>

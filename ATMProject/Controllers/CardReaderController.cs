@@ -14,9 +14,10 @@ namespace ATMProject.Controllers
         public async Task <bool> Retain(string cardNumber)
         {
             CardReaderService cr = new CardReaderService();
-            if(await cr.RetainCardAsync(cardNumber))
+            var card = cr.GetCard(cardNumber);
+            if(await cr.RetainCardAsync(card))
             return true;
             return false; 
-        }
+        }       
     }
 }

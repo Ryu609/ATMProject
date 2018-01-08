@@ -3,12 +3,9 @@
         var deferredObject = $q.defer();     
         
         $http({ method: 'POST', url: '/Account/Login', data: { CardNumber: cardNumber, Pin: pin } })
-            .then(function successCallback(response) {            
-                if (response.data === "True") {
-                    deferredObject.resolve({ success: true });
-                } else {
-                    deferredObject.resolve({ success: false });
-                }
+            .then(function successCallback(response) {                
+                    deferredObject.resolve(response);
+               
         }, function errorCallback(response) {
             deferredObject.resolve({ success: false });
             });        

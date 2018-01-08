@@ -9,7 +9,8 @@ namespace ATMProjectDAL
     public class WithdrawViewModel
     {
         public double Balance { get; set; }
-        public int AmountToWithdraw { get; set; }
+        public int Amount { get; set; }
+        public IEnumerable<Denominator> Denominator { get; set; }
         public string Account { get; set; }
     }
 }

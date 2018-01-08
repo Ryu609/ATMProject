@@ -11,6 +11,9 @@ namespace ATMProject
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            
+            ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.RouteExistingFiles = true;

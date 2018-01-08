@@ -42,8 +42,7 @@ namespace ATMProject.Controllers
             var model = new WithdrawViewModel()
             {
                 Balance = ser.GetBalance(accountNumber),
-                Account = accountNumber,
-                AmountToWithdraw = 0
+                Account = accountNumber                
             };           
             return View(model);
         }

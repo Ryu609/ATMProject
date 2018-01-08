@@ -24,7 +24,7 @@ namespace ATMTestBLL
         };
         public List<Account> Accounts => _accounts;
 
-        public void Dispense(double amount, string account)
+        public void Dispense(int unit, int currency,  string account)
         {
             //module to implement the dispenser;
             return;
@@ -37,11 +37,16 @@ namespace ATMTestBLL
 
         public void Retrieve(WithdrawViewModel model)
         {
-           
+            var total = 0;
             var account = Accounts.Where(a => a.AccountNumber == model.Account).FirstOrDefault();
-            Dispense(model.AmountToWithdraw, model.Account);
-            printReceipt(model.AmountToWithdraw, model.Account);
-            account.Balance -= model.AmountToWithdraw;
+            foreach (var item in model.Denominator)
+            {
+                Dispense(item.Unit, item.Currency, model.Account);
+                total = total + (item.Unit * item.Currency);
+            }
+            
+            printReceipt(total, model.Account);
+            account.Balance -= total;
         }
 
         public void printReceipt( double amount,string account)

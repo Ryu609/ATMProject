@@ -7,20 +7,24 @@
             loginFailure: false,
             loginFailAttempt: 0,
             retainCard: false,
-        }
-        console.log($scope);
+        };       
     $scope.login = function () {
         $scope.submitted = true;
        
         var result = LoginFactory($scope.loginForm.cardNumber, $scope.loginForm.pin);       
         
-        result.then(function (result) {   
-            if (result.success) {
+        result.then(function (result) {
+            console.log(result);
+            if (result.data.IsAuthenticated === true) {
+               
                 $state.transitionTo("stateThree");           
+            }
+            else if (result.data.IsReported === true) {
+                $state.transitionTo("stateSix");
             }
             else {
                 $scope.handleError.loginFailAttempt = $scope.handleError.loginFailAttempt + 1;
-                console.log($scope);
+                
                 if ($scope.handleError.loginFailAttempt > 3) {                   
                     var retainCardresult = RetainCardFactory($scope.loginForm.cardNumber);
                    

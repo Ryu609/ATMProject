@@ -27,10 +27,10 @@ namespace ATMProject.Controllers
             var card = cardReader.GetCard(model.CardNumber);
             if (card.IsReported)
             {
-                await cardReader.RetainCardAsync(card.CardNumber);
+                await cardReader.RetainCardAsync(card);
                 
             }
-            if (membership.ValidateUser(model.CardNumber, model.Pin))
+            else if (membership.ValidateUser(model.CardNumber, model.Pin))
             {
                 FormsAuthentication.SetAuthCookie(model.CardNumber, true);
                 card.IsAuthenticated = true;

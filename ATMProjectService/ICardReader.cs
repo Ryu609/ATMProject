@@ -9,6 +9,6 @@ namespace ATMProjectService
 {
     public interface ICardReader
     {
-       Task<bool> RetainCardAsync(string cardNumber);        
+       Task<bool> RetainCardAsync(Card card);        
     }
 }

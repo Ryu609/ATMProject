@@ -1,0 +1,68 @@
+var WithdrawController = function ($scope, $state, $window, $stateParams, $location, AccountsFactory, WithdrawAmountFactory) {
+
+    $scope.accounts = [];
+
+    $scope.GetAccountList = function () {
+        var result = AccountsFactory($scope.cardNumber);
+        result.then(function (result) {
+            if (result.success) {
+                //TODO
+            }
+            $scope.accounts = result.data;
+        });
+    }
+
+    $scope.WithdrawSelect = function (selectedAccount) {
+        console.log(selectedAccount);
+        $location.path('SelectAmount/' + selectedAccount.AccountNumber);
+    }
+
+    $scope.amount = 0;
+
+    $scope.withdraw = function (account) {
+        var denominators = [][];
+        var denominator = {};
+        var unit = 0;
+
+
+        var currencies = [1000, 500, 200, 100, 50, 20];
+
+        var mymagicvar = 0
+        currencies.forEach(function (currency, index) {
+            var remainder = $scope.amount;
+            if (remainder >= currency) {
+
+                for (var i = 0; i <= 5; i++) {
+
+                    var currency2 = currencies[i];
+
+                    if (remainder >= currency2) {
+                        if (remainder % currency2 == 0) {
+                            unit = remainder / currency2;
+                            denominators[mymagicvar].push({ "Unit": unit, "Currency": currency2 });
+                            mymagicvar++;
+                        }
+                        else {
+                            unit = parseInt(remainder / currency2);
+                            denominators[mymagicvar].push({ "Unit": unit, "Currency": currency2 });
+                            remainder = remainder % currency2;
+                        };
+                    };
+                };
+            };
+
+        });
+
+
+        $scope.denominators = denominators;
+        //var result = WithdrawAmountFactory(amount, account);
+        //result.then(function (result) {
+        //    if (result.success)
+        //        $state.transitionTo("stateFour");
+        //    else
+        //        $state.transitionTo("stateSeven");
+        //});
+
+    };
+};
+WithdrawController.$inject = ['$scope', '$state', '$window', '$stateParams', '$location', 'AccountsFactory', 'WithdrawAmountFactory'];

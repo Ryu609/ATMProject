@@ -11,7 +11,7 @@ namespace ATMProjectDAL
         public string Pin { get; set; }        
         public string CardNumber { get; set; }          
         public bool IsReported { get; set; }
-        public bool IsRetain { get; set; }
+        public bool IsRetained { get; set; }
         public bool IsAuthenticated { get; set; } = false;
     }
 }

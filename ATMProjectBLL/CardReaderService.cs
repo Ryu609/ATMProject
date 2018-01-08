@@ -14,21 +14,22 @@ namespace ATMTestBLL
                 new Card {
                     CardNumber = "1234", 
                     IsReported = false,
-                    IsRetain = false                    
+                    IsRetained = false                    
                 },
                 new Card {
                   CardNumber = "12345",
                   IsReported = true,
-                  IsRetain = false,
+                  IsRetained = false,
                 }     
         };
 
-        public async Task<bool> RetainCardAsync(string cardNumber)
+        public async Task<bool> RetainCardAsync(Card card)
         {
             //Implementation of logic to retain Card
             await Task.Delay(1000);
+            card.IsRetained = true;
             return true;
-        }
+        }       
 
         public Card GetCard(string cardNumber)
         {
