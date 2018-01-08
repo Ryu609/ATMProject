@@ -37,25 +37,27 @@
         var currencies = [1000, 500, 200, 100, 50, 20, 10];        
         var myamount = $scope.withdrawForm.amount; 
         
-        $scope.denominators = f(myamount, currencies);        
+        $scope.denominators = $scope.denominators = [[{ "Unit": 1, "Currency": 500 }], [{ "Unit": 2, "Currency": 200 }, { "Unit": 1, "Currency": 100 }], [{ "Unit": 5, "Currency": 100 }], [{ "Unit": 1, "Currency": 300 }, { "Unit": 2, "Currency": 300 }, { "Unit": 1, "Currency": 1000 }]];        
     };
 };
 
-function f(amount, currencies) {
-    var bigArray = [];
 
-    for (var index = 0; index < currencies.length; index++) {
-        var myarray = [];
+//version 3
+//function f(amount, currencies) {
+//    var bigArray = [];
 
-        if (amount % currencies[index] == 0) {
-            myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-        }      
-        else 
+//    for (var index = 0; index < currencies.length; index++) {
+//        var myarray = [];
+
+//        if (amount % currencies[index] == 0) {
+//            myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
+//        }      
+//        else 
         
-    }
-    return bigArray;
+//    }
+//    return bigArray;
 
-}
+//}
 
 //version 2
 //function f(amount, currencies) {
