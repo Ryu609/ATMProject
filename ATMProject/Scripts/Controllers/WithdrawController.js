@@ -33,13 +33,34 @@
     }
 
 
-    $scope.setDenominators =  function (amount) {        
-
-        $scope.denominators = [[{ "Unit": 1, "Currency": 500 }],[{ "Unit": 2, "Currency": 200 }, { "Unit": 1, "Currency": 100 }], [{ "Unit": 5, "Currency": 100 }], [{ "Unit": 1, "Currency": 300 }, { "Unit": 2, "Currency": 300 }, { "Unit": 1, "Currency": 1000 }]]
-        
+    $scope.setDenominators =  function () {        
+        var currencies = [1000, 500, 200, 100, 50, 20];        
+        var myamount = $scope.withdrawForm.amount; 
+            $scope.denominators = f(myamount, currencies);        
     };
-
-   
 };
+
+function f(amount, currencies) {
+    var denominators = [];
+    var myarray = [];
+ 
+    for (var index = 0; index < currencies.length; index++) {
+        
+        if (amount % currencies[index] == 0)
+        {
+            denominators.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });    
+        }
+        else {
+            var myresult = [];
+            myresult.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
+            myresult = f(amount % currencies[index], currencies.slice(index + 1));
+            denominators.push(myresult);
+            
+        }
+    }
+    return denominators;
+
+};
+
 
 WithdrawController.$inject = ['$scope', '$state', '$window', '$stateParams', '$location', 'AccountsFactory', 'WithdrawAmountFactory'];
