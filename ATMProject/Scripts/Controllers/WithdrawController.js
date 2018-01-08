@@ -42,21 +42,22 @@
 
 function f(amount, currencies) {
     var denominators = [];
-    var myarray = [];
+   
  
     for (var index = 0; index < currencies.length; index++) {
-        
+        var myarray = [];
         if (amount % currencies[index] == 0)
         {
-            denominators.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });    
+            myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });    
         }
         else {
             var myresult = [];
             myresult.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
             myresult = f(amount % currencies[index], currencies.slice(index + 1));
-            denominators.push(myresult);
+            myarray.push(myresult);
             
         }
+        denominators.push(myarray);
     }
     return denominators;
 
