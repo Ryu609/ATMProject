@@ -36,13 +36,44 @@
     $scope.setDenominators =  function () {        
         var currencies = [1000, 500, 200, 100, 50, 20, 10];        
         var myamount = $scope.withdrawForm.amount; 
-        
-        $scope.denominators = $scope.denominators = [[{ "Unit": 1, "Currency": 500 }], [{ "Unit": 2, "Currency": 200 }, { "Unit": 1, "Currency": 100 }], [{ "Unit": 5, "Currency": 100 }], [{ "Unit": 1, "Currency": 300 }, { "Unit": 2, "Currency": 300 }, { "Unit": 1, "Currency": 1000 }]];        
+        var mybigArray = [];
+        for (var myindex = 0; myindex < currencies.length; myindex++)
+        {
+            if (myamount % currencies[myindex] == 0) {
+                mybigArray.push([{ "Unit": myamount / currencies[myindex], "Currency": currencies[myindex] }]);
+            }
+            else {
+                mybigArray.push(f(myamount, currencies.slice(myindex)))
+            }
+        }
+
+        $scope.denominators = mybigArray;
+
+        console.log($scope.denominators);
     };
 };
 
 
-//version 3
+function f(amount, currencies) {
+      
+    for (var index = 0; index < currencies.length; index++) {
+        if (amount >= currencies[index]) {
+            var remainder = amount % currencies[index]
+            //base
+            if (remainder == 0)
+                return { "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] };
+
+            var whole = parseInt(amount / currencies[index]);
+
+            return [{ "Unit": whole, "Currency": currencies[index] }, f(remainder, currencies.slice(1))];
+        }
+    }
+}
+
+var bigarray = [];
+bigarray.push(f(1400, [1000, 500, 200, 100, 50, 20, 10]));
+
+////Version 3
 //function f(amount, currencies) {
 //    var bigArray = [];
 
