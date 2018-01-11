@@ -13,27 +13,11 @@ atmproject.factory('WithdrawAmountFactory', WithdrawAmountFactory);
 
 var configFunction = function ($stateProvider, $httpProvider, $locationProvider, $qProvider) {
     $locationProvider.hashPrefix('!').html5Mode(true);
-    $qProvider.errorOnUnhandledRejections(false);
-    //$routeProvider
-    //    .when('/login', {
-    //        templateUrl: '/Account/Login',
-    //        controller: LoginController
-    //    })
-    //    .when('/logout', { templateUrl: '/Account/Logout' })
-    //    .when('/Transaction', { templateUrl: '/Transaction/Index', controller: TransactionController })
-    //    .when('/Withdraw', { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController })
-    //    .when('/ThankYou', { templateUrl: '/SuccessPage.html', controller: LandingPageController })
-    //    .when('/Retain', { templateUrl: '/Retain.html', controller: LandingPageController })
-    //    .when('/WithdrawError', { templateUrl: '/WithdrawError.html', controller: LandingPageController })
-    //    .when('/SelectAmount/:accountNumber', {
-    //        templateUrl: function (params) { return '/Transaction/selectAmount/' + params.accountNumber; }, controller: WithdrawController
-    //    });
-
-    //$httpProvider.interceptors.push('AuthHttpResponseInterceptor');
+    $qProvider.errorOnUnhandledRejections(false);   
 
     $stateProvider
-        .state('stateTen', { url: '/Home', views: { "containerOne": { template: '<h1>Welcome To the ATMProject</h1>' }, "containerTwo": { template: '<a class="nav-link" ui-sref="stateOne">Login</a>' } } })
-        .state('stateOne', { url: '/Login', views: { "containerTwo": { templateUrl: '/Account/Login', controller: LoginController }, "containerOne": { template: '<h1>Login Page</h1>' } } })
+        .state('stateTen', { url: '/Home', views: { "containerOne": { template: '<h1>Welcome To the ATMProject</h1>' }, "containerTwo": { template: '<a class="btn btn-primary" ui-sref="stateOne"><i class="fa fa-sign-in"></i> Login</a>' } } })
+        .state('stateOne', { url: '/Login', views: { "containerTwo": { templateUrl: '/Account/Login', controller: LoginController }, "containerOne": { template: '<h1>Login</h1>' } } })
         .state('stateTwo', { url: '/Logout', views: { "containerOne": { templateUrl: '/Account/Logout' } } })
         .state('stateThree', { url: '/Transaction', views: { "containerOne": { templateUrl: '/Transaction/Index', controller: TransactionController } } })
         .state('stateFour', { url: '/ThankYou', views: { "containerOne": { templateUrl: '/SuccessPage.html' } } })
@@ -41,15 +25,7 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         .state('stateSix', { url: '/Retain', views: { "containerOne": { templateUrl: '/Retain.html' } } })
         .state('stateSeven', { url: '/WithdrawError', views: { "containerOne": { templateUrl: '/WithdrawError.html' } } })
         .state('stateEight', { url: '/SelectAmount/:accountNumber', views: { "containerOne": { templateUrl: function (params) { return '/Transaction/SelectAmount/' + params.accountNumber; }, controller: WithdrawController } } });
-    //$stateProvider.state('stateTwo', {
-    //    url: '/stateTwo',
-    //    views: {
-    //        "containerOne": { templateUrl: '/Account/Login', controller: LoginController },
-    //        "containerTwo": {
-    //            templateUrl: '/Account/Logout'
-    //        }
-    //    }
-    //})
+   
     $httpProvider.interceptors.push('AuthHttpResponseInterceptor');
 
 };

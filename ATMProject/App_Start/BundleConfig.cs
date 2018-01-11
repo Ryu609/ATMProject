@@ -13,7 +13,8 @@ namespace ATMProject
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/Site.css")
                 .Include("~/Content/ui-bootstrap-csp.css")
-                .Include("~/Content/Bootstrap.min.css"));
+                .Include("~/Content/Bootstrap.min.css")
+                .Include("~/Content/font-awesome.css"));
 
           
 
