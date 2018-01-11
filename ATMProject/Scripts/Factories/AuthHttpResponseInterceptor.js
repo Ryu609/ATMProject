@@ -8,7 +8,7 @@
         },
         responseError: function (rejection) {
             if (rejection.status === 401) {
-                $injector.get('$state').go('loginRegister', { returnUrl: $location.path() });
+                $injector.get('$state').go('stateOne', { returnUrl: $location.path() });
             }
             return $q.reject(rejection);
         }
