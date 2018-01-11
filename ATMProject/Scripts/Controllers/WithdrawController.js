@@ -37,14 +37,18 @@
         var currencies = [1000, 500, 200, 100, 50, 20, 10];        
         var myamount = $scope.withdrawForm.amount; 
         var mybigArray = [];
+       
         for (var myindex = 0; myindex < currencies.length; myindex++)
         {
+            
+            var mysmallArray = [];
             if (myamount % currencies[myindex] == 0) {
                 mybigArray.push([{ "Unit": myamount / currencies[myindex], "Currency": currencies[myindex] }]);
             }
             else {
-                mybigArray.push(f(myamount, currencies.slice(myindex)))
+                mybigArray.push(f(myamount, currencies.slice(myindex), mysmallArray))
             }
+            console.log(mybigArray);
         }
 
         $scope.denominators = mybigArray;
@@ -54,24 +58,41 @@
 };
 
 
-function f(amount, currencies) {
-      
+//Version 5
+function f(amount, currencies, myarray) {
+   
     for (var index = 0; index < currencies.length; index++) {
+
         if (amount >= currencies[index]) {
-            var remainder = amount % currencies[index]
-            //base
-            if (remainder == 0)
-                return { "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] };
-
-            var whole = parseInt(amount / currencies[index]);
-
-            return [{ "Unit": whole, "Currency": currencies[index] }, f(remainder, currencies.slice(1))];
+            myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
         }
-    }
+        if (amount % currencies[index] > 0)
+           f(amount % currencies[index], currencies.slice(1), myarray);
+        return myarray;
+    }  
 }
 
-var bigarray = [];
-bigarray.push(f(1400, [1000, 500, 200, 100, 50, 20, 10]));
+//Version 4
+//function f(amount, currencies, myarray) {
+      
+//    for (var index = 0; index < currencies.length; index++) {
+//        if (amount >= currencies[index]) {
+//            var remainder = amount % currencies[index]
+//            //base
+//            if (remainder == 0)
+//                myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
+//            else
+//            {
+//                var whole = parseInt(amount / currencies[index]);
+//                if (whole > 0) {
+//                    myarray.push({ "Unit": whole, "Currency": currencies[index] });
+//                    myarray.push(f(remainder, currencies.slice(1), myarray));
+//                }
+//            }    
+//        }
+//        return myarray;
+//    }    
+//}
 
 ////Version 3
 //function f(amount, currencies) {
