@@ -19,9 +19,9 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         .state('stateTen', { url: '/Home', views: { "containerOne": { template: '<h1>Welcome To the ATMProject</h1>' }, "containerTwo": { template: '<a class="btn btn-primary" ui-sref="stateOne"><i class="fa fa-sign-in"></i> Login</a>' } } })
         .state('stateOne', { url: '/Login', views: { "containerTwo": { templateUrl: '/Account/Login', controller: LoginController }, "containerOne": { template: '<h1>Login</h1>' } } })
         .state('stateTwo', { url: '/Logout', views: { "containerOne": { templateUrl: '/Account/Logout' } } })
-        .state('stateThree', { url: '/Transaction', views: { "containerOne": { templateUrl: '/Transaction/Index', controller: TransactionController } } })
+        .state('stateThree', { url: '/Transaction', views: { "containerOne": {template: "<h1>Main Menu</h1>"}, "containerTwo": { templateUrl: '/Transaction/Index', controller: TransactionController } } })
         .state('stateFour', { url: '/ThankYou', views: { "containerOne": { templateUrl: '/SuccessPage.html' } } })
-        .state('stateFive', { url: '/Withdraw', views: { "containerOne": { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController } } })
+        .state('stateFive', { url: '/Withdraw', views: { "containerOne": {template: "<h1>Account Selection</h1>"}, "containerTwo": { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController } } })
         .state('stateSix', { url: '/Retain', views: { "containerOne": { templateUrl: '/Retain.html' } } })
         .state('stateSeven', { url: '/WithdrawError', views: { "containerOne": { templateUrl: '/WithdrawError.html' } } })
         .state('stateEight', { url: '/SelectAmount/:accountNumber', views: { "containerOne": { templateUrl: function (params) { return '/Transaction/SelectAmount/' + params.accountNumber; }, controller: WithdrawController } } });

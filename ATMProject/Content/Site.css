@@ -8,3 +8,11 @@
     float: none;
     margin: 0 auto;
 }
+
+.transactionOptions {
+margin-top: 25px;
+}
+
+.accountSelection {
+    margin-top: 25px;
+}

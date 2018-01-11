@@ -1,6 +1,6 @@
 ﻿var TransactionController = function ($scope) {
     $scope.models = {
-        MainMenu : "Main Menu"
+        
     };
 }
 
