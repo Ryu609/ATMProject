@@ -32,23 +32,22 @@
     }
 
 
-    $scope.setDenominators = function () {
-        console.log($scope.withdrawForm);
+    $scope.setDenominators = function () {        
         var currencies = [1000, 500, 200, 100, 50, 20, 10];        
         var myamount = $scope.withdrawForm.amount; 
         var mybigArray = [];
        
-        for (var myindex = 0; myindex < currencies.length; myindex++)
-        {
-            
-            var mysmallArray = [];
-            if (myamount % currencies[myindex] == 0) {
-                mybigArray.push([{ "Unit": myamount / currencies[myindex], "Currency": currencies[myindex] }]);
+        for (var myindex = 0; myindex < currencies.length; myindex++) {
+            if (myamount >= currencies[myindex]) {
+                var mysmallArray = [];
+                if (myamount % currencies[myindex] == 0) {
+                    mybigArray.push([{ "Unit": myamount / currencies[myindex], "Currency": currencies[myindex] }]);
+                }
+                else {
+                    mybigArray.push(f(myamount, currencies.slice(myindex), mysmallArray))
+                }
             }
-            else {
-                mybigArray.push(f(myamount, currencies.slice(myindex), mysmallArray))
-            }
-                    }
+        }
 
         $scope.denominators = mybigArray;        
     };
