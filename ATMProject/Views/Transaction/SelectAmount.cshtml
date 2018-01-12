@@ -14,9 +14,14 @@
     <div ng-if="withdrawForm.inputAmount.$valid">
         <div ng-repeat="denominator in  denominators track by $index">
             <div class="radio">                
-                    <input id="radio_{{$index + 1}}" type="radio" ng-model="withdrawForm.selectedDenominator" name="withdrawForm.inputdenominator" ng-value="denominator"><label for="radio_{{$index + 1}}" class="radio-label"><span ng-repeat="item in denominator track by $index"> {{item.Unit}} * {{item.Currency}} <span ng-if="$index < denominator.length-1">+</span></span></label>    
+                    <input id="radio_{{$index + 1}}" type="radio" ng-model="withdrawForm.selectedDenominator" name="withdrawForm.inputdenominator" ng-value="denominator">
+                <label for="radio_{{$index + 1}}" class="radio-label">
+                <span class="radio-label" ng-repeat="item in denominator track by $index"> {{item.Unit}} * {{item.Currency}}
+                    <span class="radio-label" ng-if="$index < denominator.length-1">+</span>
+                    </span>
+                </label>    
             </div>
         </div>
     </div>
-    <button class="btn btn-primary" type="submit">Retrieve</button>
+    <button class="btn btn-primary retrieveButton" type="submit">Retrieve</button>
 </form>
