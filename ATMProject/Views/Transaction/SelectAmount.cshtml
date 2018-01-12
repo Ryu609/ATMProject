@@ -6,9 +6,10 @@
 <form name="withdrawForm" novalidate ng-submit="withdraw('@Model.Account')">
 
     <div class="form-group" col-lg-8 col-centered>
-        <input placeholder="Amount To Withdraw" class="form-control" ng-keyup="setDenominators()" type="number" name="inputAmount" id="amount" ng-model="withdrawForm.amount" pattern="^\d*[0]$" />
+        <input placeholder="Amount To Withdraw" class="form-control" ng-keyup="setDenominators()" type="number" name="inputAmount" id="amount" ng-model="withdrawForm.amount" pattern="^\d*[0]$" max="@Model.Balance"/>
         <div ng-messages="withdrawForm.amount.$error" style="color:maroon" role="alert" ng-if="withdrawForm.amount.$dirty">
             <div ng-message="pattern"><font size="2">The value should be a multiple of 10</font></div>
+            <div ng-message="max"><font size="2">The value should exceeds the balance</font></div>
         </div>
     </div>
     <div ng-if="withdrawForm.inputAmount.$valid">

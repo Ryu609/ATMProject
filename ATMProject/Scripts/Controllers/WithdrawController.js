@@ -57,8 +57,6 @@
     };
 };
 
-
-//Version 5
 function f(amount, currencies, myarray) {
    
     for (var index = 0; index < currencies.length; index++) {
@@ -71,103 +69,5 @@ function f(amount, currencies, myarray) {
         return myarray;
     }  
 }
-
-//Version 4
-//function f(amount, currencies, myarray) {
-      
-//    for (var index = 0; index < currencies.length; index++) {
-//        if (amount >= currencies[index]) {
-//            var remainder = amount % currencies[index]
-//            //base
-//            if (remainder == 0)
-//                myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-//            else
-//            {
-//                var whole = parseInt(amount / currencies[index]);
-//                if (whole > 0) {
-//                    myarray.push({ "Unit": whole, "Currency": currencies[index] });
-//                    myarray.push(f(remainder, currencies.slice(1), myarray));
-//                }
-//            }    
-//        }
-//        return myarray;
-//    }    
-//}
-
-////Version 3
-//function f(amount, currencies) {
-//    var bigArray = [];
-
-//    for (var index = 0; index < currencies.length; index++) {
-//        var myarray = [];
-
-//        if (amount % currencies[index] == 0) {
-//            myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-//        }      
-//        else 
-        
-//    }
-//    return bigArray;
-
-//}
-
-//version 2
-//function f(amount, currencies) {
-//    var bigArray = [];
-
-//    for (var index = 0; index < currencies.length; index++)
-//    {
-//        var smallArray = [];       
-
-//        if (amount % currencies[index] == 0) {
-//            smallArray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-//        }
-
-//        else {
-//            if (amount >= currencies[index]) {
-//                myArray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-//            }
-//                if (amount % currencies[index] > 10)
-//                {
-//                    myArray.push(f(amount % currencies[index], currencies.slice(1)));
-//                }
-        
-           
-//            smallArray.push(myArray);
-//        }
-
-//        bigArray.push(smallArray);
-//    }    
-//    return bigArray;
-
-//}
-
-
-//version 1
-//function f(amount, currencies) {
-//    var denominators = []; 
- 
-//    for (var index = 0; index < currencies.length; index++) {
-//        if (amount >= currencies[index]) {
-//            var myarray = [];
-//            if (amount % currencies[index] == 0) {
-//                myarray.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-//            }
-//            else {
-//                var myresult = [];
-//                if (amount >= currencies[index]) {
-//                    myresult.push({ "Unit": parseInt(amount / currencies[index]), "Currency": currencies[index] });
-//                }
-                
-//                myarray.push(myresult);
-
-//            }
-//            denominators.push(myarray);
-//        }
-//    }
-//    return denominators;
-
-//};
-
 
 WithdrawController.$inject = ['$scope', '$state', '$window', '$stateParams', '$location', 'AccountsFactory', 'WithdrawAmountFactory'];
