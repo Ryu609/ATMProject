@@ -4,22 +4,19 @@
 
 
 <form name="withdrawForm" novalidate ng-submit="withdraw('@Model.Account')">
-   
+
     <div class="form-group" col-lg-8 col-centered>
-        <input placeholder="Amount To Withdraw" class="form-control" ng-keyup="setDenominators()" type="number" name="inputAmount" id="amount" ng-model="withdrawForm.amount" pattern="^\d*[0]$"/>
-            <div ng-messages="withdrawForm.amount.$error" style="color:maroon" role="alert" ng-if="withdrawForm.amount.$dirty"> 
-                <div ng-message="pattern"><font size="2">The value should be a multiple of 10</font></div>                
-            </div> 
+        <input placeholder="Amount To Withdraw" class="form-control" ng-keyup="setDenominators()" type="number" name="inputAmount" id="amount" ng-model="withdrawForm.amount" pattern="^\d*[0]$" />
+        <div ng-messages="withdrawForm.amount.$error" style="color:maroon" role="alert" ng-if="withdrawForm.amount.$dirty">
+            <div ng-message="pattern"><font size="2">The value should be a multiple of 10</font></div>
+        </div>
     </div>
     <div ng-if="withdrawForm.inputAmount.$valid">
-        @*
-            <a ><div "><h1></h1></div></a>
-        </div>*@
-        <div ng-repeat="denominator in  denominators">
-            <label>
-                <input type="radio" ng-model="withdrawForm.selectedDenominator" name="withdrawForm.inputdenominator" ng-value="denominator"> <span ng-repeat="item in denominator"> {{item.Unit}} * {{item.Currency}} + </span>
-            </label>
+        <div ng-repeat="denominator in  denominators track by $index">
+            <div class="radio">                
+                    <input id="radio_{{$index + 1}}" type="radio" ng-model="withdrawForm.selectedDenominator" name="withdrawForm.inputdenominator" ng-value="denominator"><label for="radio_{{$index + 1}}" class="radio-label"><span ng-repeat="item in denominator"> {{item.Unit}} * {{item.Currency}} + </span></label>    
+            </div>
         </div>
-        </div>
+    </div>
     <button class="btn btn-primary" type="submit">Retrieve</button>
 </form>
