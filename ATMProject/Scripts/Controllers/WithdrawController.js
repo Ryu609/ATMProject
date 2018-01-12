@@ -1,7 +1,7 @@
 ﻿var WithdrawController = function ($scope, $state, $window, $stateParams, $location, AccountsFactory, WithdrawAmountFactory) {
 
     $scope.withdrawForm = {        
-        amount: 0,
+        inputamount: 0,
         selectedDenominator: []
     }
     $scope.accounts = [];
@@ -16,8 +16,7 @@
         });
     }
 
-    $scope.WithdrawSelect = function (selectedAccount) {
-        console.log(selectedAccount);
+    $scope.WithdrawSelect = function (selectedAccount) {        
         $location.path('SelectAmount/' + selectedAccount.AccountNumber);
     }   
 
@@ -33,7 +32,8 @@
     }
 
 
-    $scope.setDenominators =  function () {        
+    $scope.setDenominators = function () {
+        console.log($scope.withdrawForm);
         var currencies = [1000, 500, 200, 100, 50, 20, 10];        
         var myamount = $scope.withdrawForm.amount; 
         var mybigArray = [];
@@ -48,12 +48,9 @@
             else {
                 mybigArray.push(f(myamount, currencies.slice(myindex), mysmallArray))
             }
-            console.log(mybigArray);
-        }
+                    }
 
-        $scope.denominators = mybigArray;
-
-        console.log($scope.denominators);
+        $scope.denominators = mybigArray;        
     };
 };
 
