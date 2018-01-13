@@ -132,11 +132,19 @@ margin-top: 25px;
 margin-bottom: 75px;
 }
 
-.retainAlert {
+.errorpage {
 margin-top: 200px;
-align-content:center;
+margin-left: 200px;
 }
 
-.retainAlert > h1 {
+.errorpage > h1 {
         color: maroon;
+}
+
+.successpage {
+    margin-top: 200px;
+    margin-left: 200px;
+}
+.successpage > h1 {
+   color: darkseagreen
 }
