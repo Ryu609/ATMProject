@@ -1,6 +1,5 @@
 ﻿@model ATMProjectDAL.WithdrawViewModel
-<h4>Balance : @Model.Balance </h4>
-<h4>Account : @Model.Account </h4>
+<h4 class="balance">Balance : @Model.Balance   Account : @Model.Account </h4>
 
 
 <form name="withdrawForm" novalidate ng-submit="withdraw('@Model.Account')">
@@ -13,9 +12,13 @@
         </div>
     </div>
     <div ng-if="withdrawForm.inputAmount.$valid">
+        <div ng-messages="withdrawForm.inputDenominator.$error" style="color:maroon" role="alert" ng-if="withdrawForm.inputAmount.$dirty">
+            <div ng-message="required"><font size="2">A denominator is required</font></div>
+            
+        </div>
         <div ng-repeat="denominator in  denominators track by $index">
             <div class="radio">                
-                    <input id="radio_{{$index + 1}}" type="radio" ng-model="withdrawForm.selectedDenominator" name="withdrawForm.inputdenominator" ng-value="denominator">
+                    <input id="radio_{{$index + 1}}" type="radio" ng-model="withdrawForm.selectedDenominator" name="inputDenominator" ng-value="denominator" required>
                 <label for="radio_{{$index + 1}}" class="radio-label">
                 <span class="radio-label" ng-repeat="item in denominator track by $index"> {{item.Unit}} * {{item.Currency}}
                     <span class="radio-label" ng-if="$index < denominator.length-1">+</span>

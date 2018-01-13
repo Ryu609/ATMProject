@@ -5,6 +5,7 @@
 .mainContent {
     margin-top: 200px;
 }
+
 .col-centered {
     margin-top: 100px;
     float: none;
@@ -123,4 +124,10 @@ strong {
 
 .containerTwo {
 margin-top: 25px;
+}
+
+.balance {
+float: right;
+margin-top: 25px;
+margin-bottom: 75px;
 }

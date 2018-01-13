@@ -19,9 +19,9 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
         .state('stateTen', { url: '/Home', views: { "containerOne": { template: '<div class="containerOneMessage"> Welcome To The ATM Project</div>' }, "containerTwo": { template: '<a class="btn btn-default btn-lg" ui-sref="stateOne"><i class="fa fa-sign-in"></i> Login</a>' } } })
         .state('stateOne', { url: '/Login', views: { "containerTwo": { templateUrl: '/Account/Login', controller: LoginController }, "containerOne": { template: '<div class="containerOneMessage">Login</div>' } } })
         .state('stateTwo', { url: '/Logout', views: { "containerOne": { templateUrl: '/Account/Logout' } } })
-        .state('stateThree', { url: '/Transaction', views: { "containerOne": {template: "<h1>Main Menu</h1>"}, "containerTwo": { templateUrl: '/Transaction/Index', controller: TransactionController } } })
+        .state('stateThree', { url: '/Transaction', views: { "containerOne": { template: '<div class="containerOneMessage">Main Menu</div>'}, "containerTwo": { templateUrl: '/Transaction/Index', controller: TransactionController } } })
         .state('stateFour', { url: '/ThankYou', views: { "containerOne": { templateUrl: '/SuccessPage.html' } } })
-        .state('stateFive', { url: '/Withdraw', views: { "containerOne": {template: "<h1>Account Selection</h1>"}, "containerTwo": { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController } } })
+        .state('stateFive', { url: '/Withdraw', views: { "containerOne": { template: '<div class="containerOneMessage">Account Selection</div>'}, "containerTwo": { templateUrl: '/Transaction/SelectAccount', controller: WithdrawController } } })
         .state('stateSix', { url: '/Retain', views: { "containerOne": { templateUrl: '/Retain.html' } } })
         .state('stateSeven', { url: '/WithdrawError', views: { "containerOne": { templateUrl: '/WithdrawError.html' } } })
         .state('stateEight', { url: '/SelectAmount/:accountNumber', views: { "containerOne": { templateUrl: function (params) { return '/Transaction/SelectAmount/' + params.accountNumber; }, controller: WithdrawController } } });
