@@ -16,8 +16,8 @@ var configFunction = function ($stateProvider, $httpProvider, $locationProvider,
     $qProvider.errorOnUnhandledRejections(false);   
 
     $stateProvider
-        .state('stateTen', { url: '/Home', views: { "containerOne": { template: '<h1>Welcome To the ATMProject</h1>' }, "containerTwo": { template: '<a class="btn btn-primary" ui-sref="stateOne"><i class="fa fa-sign-in"></i> Login</a>' } } })
-        .state('stateOne', { url: '/Login', views: { "containerTwo": { templateUrl: '/Account/Login', controller: LoginController }, "containerOne": { template: '<h1>Login</h1>' } } })
+        .state('stateTen', { url: '/Home', views: { "containerOne": { template: '<div class="containerOneMessage"> Welcome To The ATM Project</div>' }, "containerTwo": { template: '<a class="btn btn-default btn-lg" ui-sref="stateOne"><i class="fa fa-sign-in"></i> Login</a>' } } })
+        .state('stateOne', { url: '/Login', views: { "containerTwo": { templateUrl: '/Account/Login', controller: LoginController }, "containerOne": { template: '<div class="containerOneMessage">Login</div>' } } })
         .state('stateTwo', { url: '/Logout', views: { "containerOne": { templateUrl: '/Account/Logout' } } })
         .state('stateThree', { url: '/Transaction', views: { "containerOne": {template: "<h1>Main Menu</h1>"}, "containerTwo": { templateUrl: '/Transaction/Index', controller: TransactionController } } })
         .state('stateFour', { url: '/ThankYou', views: { "containerOne": { templateUrl: '/SuccessPage.html' } } })

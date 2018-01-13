@@ -5,16 +5,16 @@
     <title ng-bind="models.title"></title>
     @Styles.Render("~/Content/css")   
 </head>
-<body>
+<body id="mybody">
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <a class="navbar-brand" href="#">ATMProject</a>
     </nav>
-    <div class="container mainContent">
+    <div class="container">
         <div class="col-md-12">
-            <div ui-view="containerOne"></div>
+            <div ui-view="containerOne"><h1 class="containerOneMessage ng-scope">Welcome To The ATMProject</h1></div>
         </div>
         <br />
-        <div class="col-md-12">
+        <div class="col-md-12 containerTwo">
             <div ui-view="containerTwo"></div>
         </div>
     </div>

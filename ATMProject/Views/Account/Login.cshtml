@@ -8,14 +8,14 @@
         <form name="loginForm" novalidate ng-submit="login()">
             <input placeholder="Card Number" class="form-control" type="text" ng-model="loginForm.cardNumber" id="cardNumber" name="inputcardNumber" required />
             <div ng-if="submitted || loginForm.cardNumber.$dirty">
-                <div ng-messages="loginForm.inputcardNumber.$error" role="alert">
+                <div ng-messages="loginForm.inputcardNumber.$error" style="color:maroon" role="alert">
                     <div ng-message="required"> <font size="2">The Card Number is required!</font></div>
                 </div>
             </div>
             <br />
             <input placeholder="Pin" class="form-control" type="password" id="pin" ng-model="loginForm.pin" name="inputpin" required />
             <div ng-if="submitted || loginForm.pin.$dirty">
-                <div ng-messages="loginForm.inputpin.$error" role="alert">
+                <div ng-messages="loginForm.inputpin.$error" style="color:maroon" role="alert">
                     <div ng-message="required"><font size="2">The Pin is required!</font></div>
                 </div>
             </div>
